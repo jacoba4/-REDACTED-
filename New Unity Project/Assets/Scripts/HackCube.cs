@@ -4,45 +4,120 @@ using UnityEngine;
 
 public class HackCube : MonoBehaviour
 {
-    float ymove;
-    float xmove;
-    public float rotspeed;
-    public Vector3 point;
+    public bool moving;
+    float t = 0;
+    GameObject[] faces;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        moving = false;
+        faces = GameObject.FindGameObjectsWithTag("Face");
     }
 
     // Update is called once per frame
     void Update()
-    {
-        //transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotspeed);
-        //float yrot = Input.GetAxis("Mouse Y") * rotspeed * Time.deltaTime;
-        //float xrot = -Input.GetAxis("Mouse X") * rotspeed * Time.deltaTime;
-        //Quaternion rotation = Quaternion.Euler(yrot,xrot,0);
-        //transform.rotation = rotation;
-
-        if(Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(Vector3.up * Time.deltaTime*rotspeed, Space.World);
-        }
-
-        if(Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(-Vector3.up * Time.deltaTime*rotspeed, Space.World);
-        }
-
-        if(Input.GetKey(KeyCode.W))
-        {
-            transform.Rotate(-Vector3.left * Time.deltaTime*rotspeed, Space.World);
-        }
-
-        if(Input.GetKey(KeyCode.S))
-        {
-            transform.Rotate(Vector3.left * Time.deltaTime*rotspeed, Space.World);
-        }
-       
+    {      
+        if(!moving)
+        {  
+            if(Input.GetKeyDown(KeyCode.A))
+            {
+                StartCoroutine("Rotxminus");
+                SetMoving(true);
+            }
+            else if(Input.GetKeyDown(KeyCode.D))
+            {
+                StartCoroutine("Rotxplus");
+                SetMoving(true);
+            }
+            else if(Input.GetKeyDown(KeyCode.W))
+            {
+                StartCoroutine("Rotyplus");
+                SetMoving(true);
+            }
+            else if(Input.GetKeyDown(KeyCode.S))
+            {
+                StartCoroutine("Rotyminus");
+                SetMoving(true);
+            } 
+        }    
     }
+
+    void SetMoving(bool m)
+    {
+        moving = m;
+        for(int i = 0; i < faces.Length; i++)
+        {
+            faces[i].SendMessage("GetMoving",m);
+        }
+    }
+
+    void GetMoving(bool m)
+    {
+        moving = m;
+    }
+
+    IEnumerator Rotxminus()
+    {
+        float t = 0;
+        float degrees_rotated = 0;
+       while(degrees_rotated <= 90)
+       {
+           transform.Rotate(0,Mathf.Lerp(2,0,t),0,Space.World);
+           degrees_rotated += Mathf.Lerp(2,0,t);
+           t+=.5f*Time.deltaTime;
+           yield return null;
+       }
+       SetMoving(false);
+        
+    }
+
+    IEnumerator Rotxplus()
+    {
+        float t = 0;
+        float degrees_rotated = 0;
+       while(degrees_rotated <= 90)
+       {
+           transform.Rotate(0,-Mathf.Lerp(2,0,t),0,Space.World);
+           degrees_rotated += Mathf.Lerp(2,0,t);
+           t+=.5f*Time.deltaTime;
+           yield return null;
+       }
+       SetMoving(false);
+        
+    }
+
+    IEnumerator Rotyminus()
+    {
+         float t = 0;
+        float degrees_rotated = 0;
+       while(degrees_rotated <= 90)
+       {
+           transform.Rotate(-Mathf.Lerp(2,0,t),0,0,Space.World);
+           degrees_rotated += Mathf.Lerp(2,0,t);
+           t+=.5f*Time.deltaTime;
+           yield return null;
+       }
+       SetMoving(false);
+        
+    }
+
+    IEnumerator Rotyplus()
+    {
+         float t = 0;
+        float degrees_rotated = 0;
+       while(degrees_rotated <= 90)
+       {
+           transform.Rotate(Mathf.Lerp(2,0,t),0,0,Space.World);
+           degrees_rotated += Mathf.Lerp(2,0,t);
+           t+=.5f*Time.deltaTime;
+           yield return null;
+       }
+       SetMoving(false);
+        
+    }
+
+    
 }
