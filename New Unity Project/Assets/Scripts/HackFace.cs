@@ -5,8 +5,11 @@ using UnityEngine;
 public class HackFace : MonoBehaviour
 {
     public bool moving;
+    public bool powered;
     GameObject[] faces;
     GameObject cube;
+    public Material powered_mat;
+    public Material unpowered_mat;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +21,27 @@ public class HackFace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-              
+        if(powered)
+        {
+            MeshRenderer mesh = GetComponent<MeshRenderer>();
+            if(mesh.material != powered_mat)
+            {
+                mesh.material = powered_mat;
+            }  
+        }
+        else
+        {
+            MeshRenderer mesh = GetComponent<MeshRenderer>();
+            if(mesh.material != unpowered_mat)
+            {
+                mesh.material = unpowered_mat;
+            } 
+        }
     }
 
     void OnMouseDown()
     {
-        if(!moving)
+        if(!moving && !cube.GetComponent<HackCube>().solved)
         {
             StartCoroutine("Rotxplus");
             SetMoving(true);
@@ -50,8 +68,8 @@ public class HackFace : MonoBehaviour
         float degrees_rotated = 0;
        while(degrees_rotated <= 90)
        {
-           transform.Rotate(0,0,-Mathf.Lerp(2,0,t),Space.World);
-           degrees_rotated += Mathf.Lerp(2,0,t);
+           transform.Rotate(0,0,-Mathf.Lerp(1.75f,0,t),Space.World);
+           degrees_rotated += Mathf.Lerp(1.75f,0,t);
            t+=.5f*Time.deltaTime;
            yield return null;
        }
