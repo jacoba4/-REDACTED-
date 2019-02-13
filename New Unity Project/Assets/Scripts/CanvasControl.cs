@@ -26,7 +26,7 @@ public class CanvasControl : MonoBehaviour
     void Start()
     {
         pressEText = GameObject.FindWithTag("Press E").GetComponent<Text>() as Text;
-        detectionImage = GameObject.FindWithTag("detectionImage").GetComponent<Image>() as Image;
+        detectionImage = GameObject.FindWithTag("detection image").GetComponent<Image>() as Image;
         docCount = 0;
         documentImageSpace = GameObject.FindWithTag("document space").GetComponent<Image>() as Image;
         documentImageSpace.sprite = transparentPhoto;
