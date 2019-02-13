@@ -16,7 +16,6 @@ public class HackCube : MonoBehaviour
         moving = false;
         solved = false;
         faces = GameObject.FindGameObjectsWithTag("Face");
-        CheckSol();
     }
 
     // Update is called once per frame

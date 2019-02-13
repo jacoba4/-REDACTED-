@@ -5,12 +5,18 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     100002: pCube15
+    100004: pCube21
     400000: //RootNode
     400002: pCube15
+    400004: pCube21
     2100000: pCube15Mat
+    2100002: pCube21Mat
     2300000: pCube15
+    2300002: pCube21
     3300000: pCube15
+    3300002: pCube21
     4300000: pCube15
+    4300002: pCube21
   externalObjects: {}
   materials:
     importMaterials: 1
