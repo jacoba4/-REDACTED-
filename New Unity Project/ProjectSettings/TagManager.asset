@@ -7,6 +7,7 @@ TagManager:
   - Face
   - Cube
   - Edge
+  - CameraBox
   layers:
   - Default
   - TransparentFX

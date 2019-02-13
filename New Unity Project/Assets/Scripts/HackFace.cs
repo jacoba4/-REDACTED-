@@ -26,7 +26,7 @@ public class HackFace : MonoBehaviour
             MeshRenderer mesh = GetComponent<MeshRenderer>();
             if(mesh.material != powered_mat)
             {
-                mesh.material = powered_mat;
+                //mesh.material = powered_mat;
             }  
         }
         else
@@ -34,7 +34,7 @@ public class HackFace : MonoBehaviour
             MeshRenderer mesh = GetComponent<MeshRenderer>();
             if(mesh.material != unpowered_mat)
             {
-                mesh.material = unpowered_mat;
+                //mesh.material = unpowered_mat;
             } 
         }
     }
