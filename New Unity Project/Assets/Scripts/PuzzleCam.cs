@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PuzzleCam : MonoBehaviour
 {
+    Camera cam;
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Camera>().enabled = false;
+        cam = gameObject.GetComponent<Camera>();
+        cam.enabled = false;
     }
 
     // Update is called once per frame

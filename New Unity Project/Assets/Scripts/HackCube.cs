@@ -10,7 +10,7 @@ public class HackCube : MonoBehaviour
     public bool solved;
     public PlayerCam player;
     public GameObject link;
-    public Camera puzcam;
+    public Camera disable;
 
 
     // Start is called before the first frame update
@@ -165,7 +165,7 @@ public class HackCube : MonoBehaviour
 
     void Solved()
     {
-        puzcam.enabled = false;
+        disable.enabled = false;
         player.SendMessage("Solved");
         link.SendMessage("Solved");
     }

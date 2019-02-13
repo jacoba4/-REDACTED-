@@ -537,7 +537,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391103280}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
@@ -1103,6 +1103,21 @@ PrefabInstance:
       propertyPath: canControl
       value: 
       objectReference: {fileID: 1616471657}
+    - target: {fileID: 5249913557879894201, guid: d015a7b2fe7c1ea48826d739fcbc906e,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249913557879894201, guid: d015a7b2fe7c1ea48826d739fcbc906e,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597290715219145799, guid: d015a7b2fe7c1ea48826d739fcbc906e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.44
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d015a7b2fe7c1ea48826d739fcbc906e, type: 3}
 --- !u!114 &801097696 stripped
@@ -1607,6 +1622,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1245193724344050500, guid: 08e59e83ef57b404891c4948764b562f,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 763461241055560932, guid: 08e59e83ef57b404891c4948764b562f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1711,11 +1731,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1245193724344050500, guid: 08e59e83ef57b404891c4948764b562f,
-        type: 3}
-      propertyPath: m_Text
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08e59e83ef57b404891c4948764b562f, type: 3}
@@ -1865,7 +1880,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1490454970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3603d6f0282a7847836e2eaed3a5010, type: 3}
+  m_Script: {fileID: 11500000, guid: b717398389608ac498b2b8bb2939594f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1513851641 stripped
@@ -2288,6 +2303,11 @@ PrefabInstance:
       propertyPath: link
       value: 
       objectReference: {fileID: 1490454970}
+    - target: {fileID: 3877615004403478931, guid: 2ec194e0ca4af5f45b61eacb9bf6f815,
+        type: 3}
+      propertyPath: disable
+      value: 
+      objectReference: {fileID: 391103282}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec194e0ca4af5f45b61eacb9bf6f815, type: 3}
 --- !u!1 &1634535952 stripped

@@ -41,6 +41,7 @@ public class PlayerCam : MonoBehaviour
         {
             CameraRotation();
             RaycastHit hit;
+            Debug.DrawRay(transform.position,transform.forward, Color.green,.01f);
             if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f) && hit.transform.tag == "test")
             {
                 if (seenItem == false)
