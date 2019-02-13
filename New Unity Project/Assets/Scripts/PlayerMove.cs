@@ -10,10 +10,12 @@ public class PlayerMove : MonoBehaviour
 
     private CharacterController charControl;
 
+    public bool allowPlayerMovement;
+
     private void Awake()
     {
         charControl = GetComponent<CharacterController>();
-
+        allowPlayerMovement = true;
     }
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,10 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (allowPlayerMovement == true)
+        {
+            Move();
+        }
     }
     void Move()
     {

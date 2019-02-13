@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Some of movement and camera adapted from https://www.youtube.com/watch?v=n-KX8AeGK7E&t=913s
 public class PlayerCam : MonoBehaviour
 {
+    private bool seenItem = false;
+    public CanvasControl canControl;
+
     [SerializeField] private string mouseXInputName, mouseYInputName;
     [SerializeField] private float mouseSensitivity;
 
@@ -11,10 +14,13 @@ public class PlayerCam : MonoBehaviour
 
     private float xAxisClamp;
 
+    public bool allowPlayerControl;
+
     private void Awake()
     {
         LockCursor();
         xAxisClamp = 0.0f;
+        allowPlayerControl = true;
     }
 
     // Start is called before the first frame update
@@ -26,7 +32,34 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CameraRotation();
+        Canvas mainCanvas = GameObject.FindObjectOfType<Canvas>();
+        if (allowPlayerControl == true)
+        {
+            CameraRotation();
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f) && hit.transform.tag == "test")
+            {
+                if (seenItem == false)
+                {
+                    mainCanvas.SendMessage("PressE");
+                    seenItem = true;
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (hit.transform.tag == "document")
+                    {
+                        canControl.docCount += 1;
+                        canControl.collectedDocuments.Add(hit.transform.gameObject.name);
+                        Destroy(hit.transform.gameObject);
+                    }
+                }
+            }
+            else if (seenItem == true && !Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))
+            {
+                mainCanvas.SendMessage("ClearText");
+                seenItem = false;
+            }
+        }
     }
     private void LockCursor()
     {
