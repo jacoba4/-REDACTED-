@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 //Some of movement and camera adapted from https://www.youtube.com/watch?v=n-KX8AeGK7E&t=913s
 public class PlayerCam : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerCam : MonoBehaviour
     private float xAxisClamp;
 
     public bool allowPlayerControl;
+
+    public GameObject PuzzleCam;
 
     private void Awake()
     {
@@ -52,6 +55,14 @@ public class PlayerCam : MonoBehaviour
                         canControl.docCount += 1;
                         canControl.collectedDocuments.Add(hit.transform.gameObject.name);
                         Destroy(hit.transform.gameObject);
+                    }
+
+                    if (hit.transform.GetComponent<Camera>() != null)
+                    {
+                        print("yep");
+                        allowPlayerControl = false;
+                        GetComponent<Camera>().enabled = false;
+                        PuzzleCam.GetComponent<Camera>().enabled = true;
                     }
                 }
             }
@@ -95,4 +106,13 @@ public class PlayerCam : MonoBehaviour
         eulerRot.x = val;
         transform.eulerAngles = eulerRot;
     }
+
+    public void Solved()
+    {
+        allowPlayerControl = true;
+        GetComponent<Camera>().enabled = true;
+        PuzzleCam.GetComponent<Camera>().enabled = false;
+    }
+
+    
 }

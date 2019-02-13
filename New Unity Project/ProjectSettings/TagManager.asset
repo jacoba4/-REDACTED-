@@ -8,6 +8,11 @@ TagManager:
   - Cube
   - Edge
   - CameraBox
+  - test
+  - hack
+  - Press E
+  - Detection image
+  - Document space
   layers:
   - Default
   - TransparentFX

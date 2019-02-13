@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -41,4 +42,16 @@ public class PlayerMove : MonoBehaviour
 
         charControl.SimpleMove(forwardMove + rightMove);
     }
+
+    void OnTriggerEnter(Collider col)
+    {
+        print("detected");
+        if(col.gameObject.transform.tag == "CameraBox")
+        {
+            print("detected");
+            SceneManager.LoadScene("PlayState", LoadSceneMode.Single);
+        }
+    }
+
+    
 }

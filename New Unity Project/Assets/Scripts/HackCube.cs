@@ -8,6 +8,9 @@ public class HackCube : MonoBehaviour
     float t = 0;
     GameObject[] faces;
     public bool solved;
+    public PlayerCam player;
+    public GameObject link;
+    public Camera puzcam;
 
 
     // Start is called before the first frame update
@@ -155,8 +158,16 @@ public class HackCube : MonoBehaviour
         {
             print("Puzzle Solved!");
             solved = true;
+            Solved();
         }
 
+    }
+
+    void Solved()
+    {
+        puzcam.enabled = false;
+        player.SendMessage("Solved");
+        link.SendMessage("Solved");
     }
 
     
