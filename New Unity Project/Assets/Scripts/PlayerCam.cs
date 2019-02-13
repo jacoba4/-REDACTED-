@@ -21,6 +21,7 @@ public class PlayerCam : MonoBehaviour
         LockCursor();
         xAxisClamp = 0.0f;
         allowPlayerControl = true;
+        mouseXInputName = "Mouse X";
     }
 
     // Start is called before the first frame update
