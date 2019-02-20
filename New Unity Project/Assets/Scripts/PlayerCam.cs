@@ -23,7 +23,7 @@ public class PlayerCam : MonoBehaviour
     {
         LockCursor();
         xAxisClamp = 0.0f;
-        allowPlayerControl = true;
+        //allowPlayerControl = true;
         mouseXInputName = "Mouse X";
     }
 
@@ -37,14 +37,14 @@ public class PlayerCam : MonoBehaviour
     void Update()
     {
         Canvas mainCanvas = GameObject.FindObjectOfType<Canvas>();
+        RaycastHit hit;
         if (allowPlayerControl == true)
         {
             CameraRotation();
-            RaycastHit hit;
             Debug.DrawRay(transform.position,transform.forward, Color.green,.01f);
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f) && hit.transform.tag == "test")
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))
             {
-                if (seenItem == false)
+                if (seenItem == false && hit.transform.tag != "Untagged")
                 {
                     mainCanvas.SendMessage("PressE");
                     seenItem = true;
@@ -64,13 +64,30 @@ public class PlayerCam : MonoBehaviour
                         allowPlayerControl = false;
                         GetComponent<Camera>().enabled = false;
                         PuzzleCam.GetComponent<Camera>().enabled = true;
+                        
+                    }
+                }
+                if (seenItem == true)
+                {
+                    if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))
+                    {
+                        if (hit.transform.tag == "Untagged")
+                        {
+                            mainCanvas.SendMessage("ClearText");
+                            seenItem = false;
+                        }
                     }
                 }
             }
-            else if (seenItem == true && !Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))
+            if (!Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))
+            {
+                seenItem = false;
+                mainCanvas.SendMessage("ClearText");
+            }
+
+            if (allowPlayerControl == false)
             {
                 mainCanvas.SendMessage("ClearText");
-                seenItem = false;
             }
         }
     }
