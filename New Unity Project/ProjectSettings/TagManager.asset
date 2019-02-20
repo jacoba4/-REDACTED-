@@ -13,6 +13,8 @@ TagManager:
   - Press E
   - Detection image
   - Document space
+  - FinalPuzzle
+  - FinalPuzzleFace
   layers:
   - Default
   - TransparentFX
