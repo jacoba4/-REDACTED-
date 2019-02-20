@@ -71,6 +71,7 @@ public class HackFace : MonoBehaviour
            transform.Rotate(0,0,-Mathf.Lerp(1.75f,0,t),Space.World);
            degrees_rotated += Mathf.Lerp(1.75f,0,t);
            t+=.5f*Time.deltaTime;
+           
            yield return null;
        }
        SetMoving(false);
