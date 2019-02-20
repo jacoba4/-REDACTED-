@@ -35,15 +35,11 @@ public class CanvasControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q) && lookingAtDocuments == false)
+        if (Input.GetKeyUp(KeyCode.Q))
         {
-            SeeDocuments();
-            lookingAtDocuments = true;
+            Check();
         }
-        if (lookingAtDocuments == true && Input.GetKey(KeyCode.Q))
-        {
-            lookingAtDocuments = false;
-        }
+        
         if (detected == true)
         {
             detectionImage.sprite = detectedEye;
@@ -61,10 +57,29 @@ public class CanvasControl : MonoBehaviour
     {
         pressEText.text = "";
     }
+    void Check()
+    {
+        if (lookingAtDocuments == false)
+        {
+            SeeDocuments();
+            lookingAtDocuments = true;
+        }
+        else if (lookingAtDocuments == true)
+        {
+            lookingAtDocuments = false;
+            ClearDocs();
+        }
+    }
     void SeeDocuments()
     {
         inUseCamera.allowPlayerControl = false;
         playerMovement.allowPlayerMovement = false;
         documentImageSpace.sprite = firstDocument;
+    }
+    void ClearDocs()
+    {
+        documentImageSpace.sprite = transparentPhoto;
+        inUseCamera.allowPlayerControl = true;
+        playerMovement.allowPlayerMovement = true;
     }
 }

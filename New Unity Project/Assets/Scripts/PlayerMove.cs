@@ -10,6 +10,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float movementSpeed;
 
     private CharacterController charControl;
+    private float playerY;
+    private Vector3 stay;
 
     public bool allowPlayerMovement;
 
@@ -17,6 +19,7 @@ public class PlayerMove : MonoBehaviour
     {
         charControl = GetComponent<CharacterController>();
         allowPlayerMovement = true;
+        stay = new Vector3(0, 0, 0);
     }
     // Start is called before the first frame update
     void Start()
@@ -27,20 +30,31 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (allowPlayerMovement == true)
         {
             Move();
+            playerY = this.transform.position.y;
+            //Debug.log
         }
+        else
+        {
+            charControl.SimpleMove(stay);
+        }
+        
+        
     }
     void Move()
     {
         float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;
         float horiInput = Input.GetAxis(horizontalInputName) * movementSpeed;
-
+        
         Vector3 forwardMove = transform.forward * vertInput;
         Vector3 rightMove = transform.right * horiInput;
 
         charControl.SimpleMove(forwardMove + rightMove);
+        
+       
     }
 
     void OnTriggerEnter(Collider col)
