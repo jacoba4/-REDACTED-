@@ -27,6 +27,8 @@ ModelImporter:
     100042: Railing7
     100044: Railing8
     100046: Railing9
+    100048: pCube30
+    100050: pCube53
     400000: Archway
     400002: //RootNode
     400004: pCone3
@@ -51,6 +53,8 @@ ModelImporter:
     400042: Railing7
     400044: Railing8
     400046: Railing9
+    400048: pCube30
+    400050: pCube53
     2100000: ArchwayMat
     2100002: pCone3Mat
     2100004: pCube1Mat
@@ -74,6 +78,8 @@ ModelImporter:
     2100040: Railing7Mat
     2100042: Railing8Mat
     2100044: Railing9Mat
+    2100046: pCube30Mat
+    2100048: pCube53Mat
     2300000: Archway
     2300002: pCone3
     2300004: pCube1
@@ -97,6 +103,8 @@ ModelImporter:
     2300040: Railing7
     2300042: Railing8
     2300044: Railing9
+    2300046: pCube30
+    2300048: pCube53
     3300000: Archway
     3300002: pCone3
     3300004: pCube1
@@ -120,6 +128,8 @@ ModelImporter:
     3300040: Railing7
     3300042: Railing8
     3300044: Railing9
+    3300046: pCube30
+    3300048: pCube53
     4300000: Archway
     4300002: pCone3
     4300004: pCube1
@@ -143,6 +153,8 @@ ModelImporter:
     4300040: Railing7
     4300042: Railing8
     4300044: Railing9
+    4300046: pCube30
+    4300048: pCube53
   externalObjects: {}
   materials:
     importMaterials: 1
