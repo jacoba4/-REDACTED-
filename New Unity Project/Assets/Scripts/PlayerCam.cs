@@ -16,6 +16,8 @@ public class PlayerCam : MonoBehaviour
     private float xAxisClamp;
 
     public bool allowPlayerControl;
+    GameObject lastSeen;
+    LightUpObject objectShader;
 
     public GameObject PuzzleCam;
 
@@ -48,6 +50,11 @@ public class PlayerCam : MonoBehaviour
                 {
                     mainCanvas.SendMessage("PressE");
                     seenItem = true;
+
+                    lastSeen = hit.transform.gameObject;
+                    objectShader = lastSeen.GetComponent<LightUpObject>();
+
+                    objectShader.isLit = true;
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -75,6 +82,7 @@ public class PlayerCam : MonoBehaviour
                         {
                             mainCanvas.SendMessage("ClearText");
                             seenItem = false;
+                            objectShader.isLit = false;
                         }
                     }
                 }
@@ -83,11 +91,13 @@ public class PlayerCam : MonoBehaviour
             {
                 seenItem = false;
                 mainCanvas.SendMessage("ClearText");
+                objectShader.isLit = false;
             }
 
             if (allowPlayerControl == false)
             {
                 mainCanvas.SendMessage("ClearText");
+                objectShader.isLit = false;
             }
         }
     }
