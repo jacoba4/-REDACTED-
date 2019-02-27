@@ -99,7 +99,7 @@ public class FinalPuzzle : MonoBehaviour
         currsymbol = 1;
         foreach(GameObject face in faces)
         {
-            face.GetComponent<SpriteRenderer>().color = Color.red;
+            face.GetComponent<SpriteRenderer>().sprite = face.GetComponent<FinalPuzzleFace>().unpowered;
         }
     }
 

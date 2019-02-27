@@ -22,6 +22,8 @@ public class FinalPuzzleCam : MonoBehaviour
         transform.GetComponent<Camera>().enabled = true;
         crosshair = GameObject.FindGameObjectWithTag("crosshair");
         crosshair.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
     }
 
