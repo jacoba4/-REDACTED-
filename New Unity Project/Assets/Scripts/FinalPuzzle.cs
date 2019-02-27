@@ -10,13 +10,14 @@ public class FinalPuzzle : MonoBehaviour
     int finalcount;
     GameObject[] faces;
     public Camera playercam;
+    public GameObject pod;
 
     // Start is called before the first frame update
     void Start()
     {
-        finalcount = 5;
+        finalcount = 6;
         moving = false;
-        currsymbol = 1;
+        currsymbol = 0;
         faces = GameObject.FindGameObjectsWithTag("FinalPuzzleFace");
     }
 
@@ -86,6 +87,10 @@ public class FinalPuzzle : MonoBehaviour
             if(currsymbol == finalcount)
             {
                 print("SOLVED :D");
+                GameObject.FindGameObjectWithTag("FinalPuzzleCam").SendMessage("SwitchOff");
+                GameObject.FindGameObjectWithTag("Cutscene Camera").GetComponent<Camera>().enabled = true;
+                pod.GetComponent<Animator>().SetTrigger("Open");
+                pod.GetComponent<AudioSource>().Play();
             }
         }
         else
@@ -96,10 +101,12 @@ public class FinalPuzzle : MonoBehaviour
 
     void Reset()
     {
-        currsymbol = 1;
+        print("Resetting");
+        currsymbol = 0;
         foreach(GameObject face in faces)
         {
-            face.GetComponent<SpriteRenderer>().sprite = face.GetComponent<FinalPuzzleFace>().unpowered;
+            SpriteRenderer s = face.GetComponent<SpriteRenderer>();
+            s.sprite = face.GetComponent<FinalPuzzleFace>().unpowered;
         }
     }
 
