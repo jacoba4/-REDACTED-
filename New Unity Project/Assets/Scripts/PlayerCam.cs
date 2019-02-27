@@ -78,7 +78,9 @@ public class PlayerCam : MonoBehaviour
                 {
                     if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))
                     {
-                        if (hit.transform.tag == "Untagged")
+                        Vector3 targetDir = lastSeen.transform.position - transform.position;
+                        float angle = Vector3.Angle(targetDir, transform.forward);
+                        if (hit.transform.tag == "Untagged" && angle > 15)
                         {
                             mainCanvas.SendMessage("ClearText");
                             seenItem = false;
@@ -89,15 +91,27 @@ public class PlayerCam : MonoBehaviour
             }
             if (!Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))
             {
-                seenItem = false;
-                mainCanvas.SendMessage("ClearText");
-                objectShader.isLit = false;
+                Vector3 targetDir = lastSeen.transform.position - transform.position;
+                float angle = Vector3.Angle(targetDir, transform.forward);
+                if (angle > 15)
+                {
+                    seenItem = false;
+                    mainCanvas.SendMessage("ClearText");
+                    objectShader.isLit = false;
+                }
+                
             }
 
             if (allowPlayerControl == false)
             {
-                mainCanvas.SendMessage("ClearText");
-                objectShader.isLit = false;
+                Vector3 targetDir = lastSeen.transform.position - transform.position;
+                float angle = Vector3.Angle(targetDir, transform.forward);
+                if (angle > 15)
+                {
+                    seenItem = false;
+                    mainCanvas.SendMessage("ClearText");
+                    objectShader.isLit = false;
+                }
             }
         }
     }
