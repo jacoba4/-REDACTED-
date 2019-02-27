@@ -12,6 +12,7 @@ public class FinalPuzzle : MonoBehaviour
     public Camera playercam;
     public GameObject pod;
     public GameObject alien;
+    public GameObject alienparent;
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +94,8 @@ public class FinalPuzzle : MonoBehaviour
                 pod.GetComponent<Animator>().SetTrigger("Open");
                 alien.GetComponent<Animator>().SetTrigger("Eyes");
                 pod.GetComponent<AudioSource>().Play();
+                alienparent.transform.localScale = new Vector3(24,24,24);
+                alienparent.transform.position = new Vector3(-6.933f,28.699f,95.27f);
             }
         }
         else
