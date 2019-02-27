@@ -20,6 +20,8 @@ TagManager:
   - FinalPuzzleCam
   - crosshair
   - Cutscene Camera
+  - Cutscene Camera 2
+  - particle
   layers:
   - Default
   - TransparentFX

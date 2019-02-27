@@ -14,7 +14,7 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] private Transform playerBody;
 
     private float xAxisClamp;
-
+    bool crouch;
     public bool allowPlayerControl;
     public GameObject lastSeen;
     public LightUpObject objectShader;
@@ -36,7 +36,7 @@ public class PlayerCam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        crouch = false;
     }
 
     // Update is called once per frame
@@ -48,6 +48,23 @@ public class PlayerCam : MonoBehaviour
         {
             CameraRotation();
             Debug.DrawRay(transform.position,transform.forward, Color.green,.01f);
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+                {
+                    if(crouch == false)
+                    {
+                        print("crouch");
+                        transform.localPosition = new Vector3(0,-.127f,0);
+                        crouch = true;
+                    }
+                }
+                if (Input.GetKeyUp(KeyCode.LeftControl))
+                {
+                    if(crouch == true)
+                    {
+                        transform.localPosition = new Vector3(0,.311f,0);
+                        crouch = false;
+                    }
+                }
             if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))
             {
                 if (seenItem == false && hit.transform.tag != "Untagged")
@@ -94,6 +111,7 @@ public class PlayerCam : MonoBehaviour
                         transform.GetComponent<Camera>().enabled = false;
                     }
                 }
+                
                 if (seenItem == true)
                 {
                     if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))

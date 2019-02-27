@@ -92,16 +92,30 @@ public class FinalPuzzle : MonoBehaviour
                 GameObject.FindGameObjectWithTag("FinalPuzzleCam").SendMessage("SwitchOff");
                 GameObject.FindGameObjectWithTag("Cutscene Camera").GetComponent<Camera>().enabled = true;
                 pod.GetComponent<Animator>().SetTrigger("Open");
-                alien.GetComponent<Animator>().SetTrigger("Eyes");
+                GameObject[] particles = GameObject.FindGameObjectsWithTag("particle");
+                foreach(GameObject particle in particles)
+                {
+                    particle.GetComponent<ParticleSystem>().Play();
+                }
                 pod.GetComponent<AudioSource>().Play();
-                alienparent.transform.localScale = new Vector3(24,24,24);
-                alienparent.transform.position = new Vector3(-6.933f,28.699f,95.27f);
+                /*                alienparent.transform.localScale = new Vector3(24,24,24);
+                alienparent.transform.position = new Vector3(-6.933f,28.699f,95.27f);*/
+                StartCoroutine("AnimWait");
             }
         }
         else
         {
             Reset();
         }
+    }
+
+    IEnumerator AnimWait()
+    {
+        yield return new WaitForSeconds(4f);
+        //alien.GetComponent<Animator>().SetTrigger("Eyes");
+        GameObject.FindGameObjectWithTag("Cutscene Camera").GetComponent<Camera>().enabled = false;
+        GameObject.FindGameObjectWithTag("Cutscene Camera 2").GetComponent<Camera>().enabled = true;
+        
     }
 
     void Reset()
