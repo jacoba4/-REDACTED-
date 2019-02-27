@@ -8,6 +8,8 @@ public class CanvasControl : MonoBehaviour
     public Text pressEText;
     public Image detectionImage;
     public Sprite firstDocument;
+    public Sprite secondDocument;
+    public Sprite thirdDocument;
     public Image documentImageSpace;
 
     public Sprite detectedEye;
@@ -21,6 +23,7 @@ public class CanvasControl : MonoBehaviour
     public PlayerCam inUseCamera;
     public PlayerMove playerMovement;
 
+    public int docNum;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,8 @@ public class CanvasControl : MonoBehaviour
         docCount = 0;
         documentImageSpace = GameObject.FindWithTag("Document space").GetComponent<Image>() as Image;
         documentImageSpace.sprite = transparentPhoto;
+
+        docNum = 0;
     }
 
     // Update is called once per frame
@@ -39,7 +44,27 @@ public class CanvasControl : MonoBehaviour
         {
             Check();
         }
-        
+
+        if (lookingAtDocuments == true)
+        {
+            if (Input.GetKey(KeyCode.A))
+            {
+                if (docNum != 0)
+                {
+                    docNum -= 1;
+                    PageTurn();
+                }
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                if (docNum != 2)
+                {
+                    docNum += 1;
+                    PageTurn();
+                }
+            }
+        }
+
         if (detected == true)
         {
             detectionImage.sprite = detectedEye;
@@ -81,5 +106,21 @@ public class CanvasControl : MonoBehaviour
         documentImageSpace.sprite = transparentPhoto;
         inUseCamera.allowPlayerControl = true;
         playerMovement.allowPlayerMovement = true;
+        docNum = 0;
+    }
+    void PageTurn()
+    {
+        if (docNum == 0)
+        {
+            documentImageSpace.sprite = firstDocument;
+        }
+        if (docNum == 1)
+        {
+            documentImageSpace.sprite = secondDocument;
+        }
+        if (docNum == 2)
+        {
+            documentImageSpace.sprite = thirdDocument;
+        }
     }
 }
