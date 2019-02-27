@@ -112,7 +112,7 @@ public class FinalPuzzle : MonoBehaviour
     IEnumerator AnimWait()
     {
         yield return new WaitForSeconds(4f);
-        //alien.GetComponent<Animator>().SetTrigger("Eyes");
+        alien.GetComponent<Animator>().SetTrigger("Eyes");
         GameObject.FindGameObjectWithTag("Cutscene Camera").GetComponent<Camera>().enabled = false;
         GameObject.FindGameObjectWithTag("Cutscene Camera 2").GetComponent<Camera>().enabled = true;
         
