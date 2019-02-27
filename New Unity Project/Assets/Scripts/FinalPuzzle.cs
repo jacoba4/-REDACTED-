@@ -12,7 +12,6 @@ public class FinalPuzzle : MonoBehaviour
     public Camera playercam;
     public GameObject pod;
     public GameObject alien;
-    public GameObject alienparent;
 
     // Start is called before the first frame update
     void Start()
