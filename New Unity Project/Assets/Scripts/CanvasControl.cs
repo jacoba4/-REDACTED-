@@ -35,6 +35,8 @@ public class CanvasControl : MonoBehaviour
         documentImageSpace.sprite = transparentPhoto;
 
         docNum = 0;
+
+        lookingAtDocuments = false;
     }
 
     // Update is called once per frame
@@ -47,7 +49,7 @@ public class CanvasControl : MonoBehaviour
 
         if (lookingAtDocuments == true)
         {
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKeyUp(KeyCode.A))
             {
                 if (docNum != 0)
                 {
@@ -55,7 +57,7 @@ public class CanvasControl : MonoBehaviour
                     PageTurn();
                 }
             }
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKeyUp(KeyCode.D))
             {
                 if (docNum != 2)
                 {
@@ -91,8 +93,9 @@ public class CanvasControl : MonoBehaviour
         }
         else if (lookingAtDocuments == true)
         {
-            lookingAtDocuments = false;
             ClearDocs();
+            lookingAtDocuments = false;
+            
         }
     }
     void SeeDocuments()

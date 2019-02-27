@@ -20,6 +20,9 @@ public class PlayerCam : MonoBehaviour
     LightUpObject objectShader;
 
     public GameObject PuzzleCam;
+    public GameObject slidingDoor;
+
+    private float startTime;
 
     private void Awake()
     {
@@ -72,6 +75,15 @@ public class PlayerCam : MonoBehaviour
                         GetComponent<Camera>().enabled = false;
                         PuzzleCam.GetComponent<Camera>().enabled = true;
                         
+                    }
+                    if (hit.transform.tag == "monitor")
+                    {
+                        /*Vector3 slide = new Vector3(0, 6.88f, 0);
+                        Vector3 start = slidingDoor.transform.position;
+                        //slidingDoor.transform.position += slide;
+                        slide += slidingDoor.transform.position;
+                        slidingDoor.transform.position = Vector3.Lerp(start, slide, 15.0f);*/
+                        OpenSmallDoor();
                     }
                 }
                 if (seenItem == true)
@@ -156,5 +168,12 @@ public class PlayerCam : MonoBehaviour
         PuzzleCam.GetComponent<Camera>().enabled = false;
     }
 
-    
+    void OpenSmallDoor()
+    {
+        Vector3 slide = new Vector3(0, 6.88f, 0);
+        Vector3 start = slidingDoor.transform.position;
+        //slidingDoor.transform.position += slide;
+        slide += slidingDoor.transform.position;
+        slidingDoor.transform.position = Vector3.Lerp(start, slide, 15.0f);
+    }
 }
