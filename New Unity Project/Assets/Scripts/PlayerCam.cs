@@ -21,6 +21,7 @@ public class PlayerCam : MonoBehaviour
 
     public GameObject PuzzleCam;
     public GameObject slidingDoor;
+    public WallRaise slidingWall;
 
     private float startTime;
 
@@ -83,7 +84,8 @@ public class PlayerCam : MonoBehaviour
                         //slidingDoor.transform.position += slide;
                         slide += slidingDoor.transform.position;
                         slidingDoor.transform.position = Vector3.Lerp(start, slide, 15.0f);*/
-                        OpenSmallDoor();
+                        //OpenSmallDoor();
+                        slidingWall.move = true;
                     }
                 }
                 if (seenItem == true)

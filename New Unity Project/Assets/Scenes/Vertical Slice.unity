@@ -1368,6 +1368,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 820d53ab3006ce140a8b349ac7a2196c, type: 3}
+--- !u!114 &662721302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662721297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a17fcd6ae4fb504c9afa90ea9ca36cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  move: 0
 --- !u!114 &695618383 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1237181127600464606, guid: 08e59e83ef57b404891c4948764b562f,
@@ -2407,26 +2421,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9bf2778fbb03494a8c53eae61f6a697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1328377824 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 8e9a52704324e5c439455e8cc7adb961,
-    type: 3}
-  m_PrefabInstance: {fileID: 956665853}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1328377825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328377824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c40f171af910a340bf3846a5c360219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isLit: 0
-  currentlyLit: 0
 --- !u!1001 &1397316850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2612,6 +2606,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808542001261996883, guid: 08e59e83ef57b404891c4948764b562f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7.692528
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808542001261996883, guid: 08e59e83ef57b404891c4948764b562f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7.692528
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808542001261996883, guid: 08e59e83ef57b404891c4948764b562f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7.692528
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08e59e83ef57b404891c4948764b562f, type: 3}
@@ -2924,6 +2933,11 @@ PrefabInstance:
       propertyPath: slidingDoor
       value: 
       objectReference: {fileID: 662721297}
+    - target: {fileID: 7350519695292486409, guid: d015a7b2fe7c1ea48826d739fcbc906e,
+        type: 3}
+      propertyPath: slidingWall
+      value: 
+      objectReference: {fileID: 662721302}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d015a7b2fe7c1ea48826d739fcbc906e, type: 3}
 --- !u!1001 &1529645075
