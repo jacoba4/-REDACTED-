@@ -2011,6 +2011,10 @@ PrefabInstance:
       propertyPath: pod
       value: 
       objectReference: {fileID: 1738239580}
+    - target: {fileID: 1284711197, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
+      propertyPath: alien
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 959867095, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -5987,17 +5991,9 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 141745002, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 156981678, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 251413092, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 260109092, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: m_IsActive
@@ -6010,10 +6006,6 @@ PrefabInstance:
     - target: {fileID: 596145985, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 598314417, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 619772842, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: m_IsActive
@@ -6035,10 +6027,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 959867094, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 1250875524, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6051,17 +6039,9 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1450226656, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 1911566035, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2015781098, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 141745004, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: m_Sprite
@@ -6285,6 +6265,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 62a50b5b535b5cb459bb665115869997,
         type: 3}
+    - target: {fileID: 141745002, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 251413092, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 598314417, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 959867094, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450226656, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015781098, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 251413096, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
     - {fileID: 1450226660, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}

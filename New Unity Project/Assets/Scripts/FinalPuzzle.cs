@@ -11,6 +11,7 @@ public class FinalPuzzle : MonoBehaviour
     GameObject[] faces;
     public Camera playercam;
     public GameObject pod;
+    public GameObject alien;
 
     // Start is called before the first frame update
     void Start()
@@ -90,6 +91,7 @@ public class FinalPuzzle : MonoBehaviour
                 GameObject.FindGameObjectWithTag("FinalPuzzleCam").SendMessage("SwitchOff");
                 GameObject.FindGameObjectWithTag("Cutscene Camera").GetComponent<Camera>().enabled = true;
                 pod.GetComponent<Animator>().SetTrigger("Open");
+                alien.GetComponent<Animator>().SetTrigger("Eyes");
                 pod.GetComponent<AudioSource>().Play();
             }
         }
