@@ -9,6 +9,7 @@ public class FinalPuzzle : MonoBehaviour
     public int currsymbol;
     int finalcount;
     GameObject[] faces;
+    public Camera playercam;
 
     // Start is called before the first frame update
     void Start()
@@ -25,15 +26,22 @@ public class FinalPuzzle : MonoBehaviour
         if(!moving)
         {
             if(Input.GetKeyDown(KeyCode.A))
-                {
-                    StartCoroutine("Rot",60f);
-                    SetMoving(true);
-                }
-                else if(Input.GetKeyDown(KeyCode.D))
-                {
-                    StartCoroutine("Rot",-60f);
-                    SetMoving(true);
-                }
+            {
+                StartCoroutine("Rot",60f);
+                SetMoving(true);
+            }
+            else if(Input.GetKeyDown(KeyCode.D))
+            {
+                StartCoroutine("Rot",-60f);
+                SetMoving(true);
+            }
+            else if(Input.GetKeyDown(KeyCode.E))
+            {
+                GameObject.FindGameObjectWithTag("FinalPuzzleCam").SendMessage("SwitchOff");
+                playercam.enabled = true;
+                Cursor.visible = false;
+                playercam.transform.GetComponent<PlayerCam>().SendMessage("LockCursor");
+            }
         }
     }
 

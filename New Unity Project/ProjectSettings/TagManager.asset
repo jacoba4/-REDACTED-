@@ -17,6 +17,8 @@ TagManager:
   - FinalPuzzleFace
   - monitor
   - Crystal
+  - FinalPuzzleCam
+  - crosshair
   layers:
   - Default
   - TransparentFX

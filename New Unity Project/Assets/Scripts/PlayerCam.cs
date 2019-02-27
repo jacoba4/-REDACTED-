@@ -16,8 +16,8 @@ public class PlayerCam : MonoBehaviour
     private float xAxisClamp;
 
     public bool allowPlayerControl;
-    GameObject lastSeen;
-    LightUpObject objectShader;
+    public GameObject lastSeen;
+    public LightUpObject objectShader;
 
     public GameObject PuzzleCam;
     public GameObject slidingDoor;
@@ -86,6 +86,12 @@ public class PlayerCam : MonoBehaviour
                         slidingDoor.transform.position = Vector3.Lerp(start, slide, 15.0f);*/
                         //OpenSmallDoor();
                         slidingWall.move = true;
+                    }
+
+                    if(hit.transform.tag == "Crystal")
+                    {
+                        GameObject.FindGameObjectWithTag("FinalPuzzleCam").SendMessage("SwitchHere");
+                        transform.GetComponent<Camera>().enabled = false;
                     }
                 }
                 if (seenItem == true)

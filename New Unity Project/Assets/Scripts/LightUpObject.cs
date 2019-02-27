@@ -51,7 +51,11 @@ public class LightUpObject : MonoBehaviour
         //In order to make it emit light, switch what's commented after isLit
         currentlyLit = true;
 
-        mat.color = finalColor;
+        mat.color = new Color(finalColor.r,finalColor.g,finalColor.b,.5f);
+        if(!transform.GetComponent<MeshRenderer>().enabled)
+        {
+            transform.GetComponent<MeshRenderer>().enabled = true;
+        }
         //mat.EnableKeyword("_EMISSION");
         //mat.SetColor("_EmissionColor", Color.green);
     }
@@ -59,6 +63,7 @@ public class LightUpObject : MonoBehaviour
     {
         //same deal here, flip what's commented to make it emit light
         mat.color = initialColor;
+        transform.GetComponent<MeshRenderer>().enabled = false;
         //mat.DisableKeyword("_EMISSION");
     }
 }
