@@ -77,7 +77,7 @@ public class PlayerCam : MonoBehaviour
 
                     objectShader.isLit = true;
                 }
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetMouseButtonDown(0))
                 {
                     if (hit.transform.tag == "document")
                     {

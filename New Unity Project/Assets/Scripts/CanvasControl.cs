@@ -78,7 +78,7 @@ public class CanvasControl : MonoBehaviour
     }
     public void PressE()
     {
-        pressEText.text = "Press E to Interact";
+        pressEText.text = "Click to Interact";
     }
     public void ClearText()
     {
