@@ -69,13 +69,18 @@ public class PlayerCam : MonoBehaviour
             {
                 if (seenItem == false && hit.transform.tag != "Untagged")
                 {
-                    mainCanvas.SendMessage("PressE");
-                    seenItem = true;
 
-                    lastSeen = hit.transform.gameObject;
-                    objectShader = lastSeen.GetComponent<LightUpObject>();
+                    if (hit.transform.tag != "monitor" || slidingWall.move == false)
+                    {
+                        mainCanvas.SendMessage("PressE");
+                        seenItem = true;
 
-                    objectShader.isLit = true;
+                        lastSeen = hit.transform.gameObject;
+                        objectShader = lastSeen.GetComponent<LightUpObject>();
+
+                        objectShader.isLit = true;
+                    }
+                    
                 }
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -103,6 +108,9 @@ public class PlayerCam : MonoBehaviour
                         slidingDoor.transform.position = Vector3.Lerp(start, slide, 15.0f);*/
                         //OpenSmallDoor();
                         slidingWall.move = true;
+                        objectShader.isLit = false;
+                        seenItem = false;
+                        mainCanvas.SendMessage("ClearText");
                     }
 
                     if(hit.transform.tag == "Crystal")
