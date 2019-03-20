@@ -15,6 +15,8 @@ public class WallRaise : MonoBehaviour
 
     private float journey;
 
+    public AudioClip open;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,12 +46,13 @@ public class WallRaise : MonoBehaviour
 
             // Set our position as a fraction of the distance between the markers.
             transform.position = Vector3.Lerp(startPoint, endPoint, fracJourney);
-            /*if (transform.position != endPoint)
-            {
-                transform.position += new Vector3(0, speed, 0);
-            }*/
+            
                 
 
         }
+    }
+    void PlayNoise()
+    {
+
     }
 }

@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class block : MonoBehaviour
 {
+    Shader inUseShader;
+    Material mat;
+    Renderer render;
+    Color initialColor;
+    Color finalColor;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        render = GetComponent<Renderer>();
+        mat = render.material;
+        initialColor = mat.color;
+        finalColor = new Color(255, 0, 0, .05f);
+        mat.color = finalColor;
     }
 
     // Update is called once per frame
@@ -19,5 +29,6 @@ public class block : MonoBehaviour
     public void Solved()
     {
         GetComponent<BoxCollider>().enabled = false;
+        mat.color = initialColor;
     }
 }
