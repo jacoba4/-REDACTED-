@@ -67,17 +67,32 @@ public class HackCube : MonoBehaviour
         }
     }
 
+    IEnumerator Rot(Vector3 byAngles,float intime)
+    {
+        Quaternion fromAngle = transform.rotation;
+        Quaternion toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
+        for(float i = 0f; i <= 1; i+= Time.deltaTime/intime)
+        {
+            transform.rotation = Quaternion.Slerp(fromAngle,toAngle,i);
+            yield return null;
+        }
+        transform.rotation = toAngle;
+        SetMoving(false);
+    }
+
+    
     IEnumerator Rotxminus()
     {
         float t = 0;
         float degrees_rotated = 0;
-       while(degrees_rotated <= 90)
+       while(degrees_rotated < 90)
        {
            transform.Rotate(0,Mathf.Lerp(1.75f,0,t),0,Space.World);
            degrees_rotated += Mathf.Lerp(1.75f,0,t);
            t+=.5f*Time.deltaTime;
            yield return null;
        }
+       Normalize();
        SetMoving(false);
        CheckSol();
         
@@ -87,13 +102,14 @@ public class HackCube : MonoBehaviour
     {
         float t = 0;
         float degrees_rotated = 0;
-       while(degrees_rotated <= 90)
+       while(degrees_rotated < 90)
        {
            transform.Rotate(0,-Mathf.Lerp(1.75f,0,t),0,Space.World);
            degrees_rotated += Mathf.Lerp(1.75f,0,t);
            t+=.5f*Time.deltaTime;
            yield return null;
        }
+       Normalize();
        SetMoving(false);
        CheckSol();
         
@@ -103,13 +119,14 @@ public class HackCube : MonoBehaviour
     {
          float t = 0;
         float degrees_rotated = 0;
-       while(degrees_rotated <= 90)
+       while(degrees_rotated < 90)
        {
            transform.Rotate(-Mathf.Lerp(1.75f,0,t),0,0,Space.World);
            degrees_rotated += Mathf.Lerp(1.75f,0,t);
            t+=.5f*Time.deltaTime;
            yield return null;
        }
+       Normalize();
        SetMoving(false);
        CheckSol();
         
@@ -119,16 +136,22 @@ public class HackCube : MonoBehaviour
     {
          float t = 0;
         float degrees_rotated = 0;
-       while(degrees_rotated <= 90)
+       while(degrees_rotated < 90)
        {
            transform.Rotate(Mathf.Lerp(1.75f,0,t),0,0,Space.World);
            degrees_rotated += Mathf.Lerp(1.75f,0,t);
            t+=.5f*Time.deltaTime;
            yield return null;
        }
+       Normalize();
        SetMoving(false);
        CheckSol();
         
+    }
+
+    void Normalize()
+    {
+        transform.eulerAngles = new Vector3(Mathf.Round(transform.eulerAngles.x),Mathf.Round(transform.eulerAngles.y),Mathf.Round(transform.eulerAngles.z));
     }
 
     void CheckSol()

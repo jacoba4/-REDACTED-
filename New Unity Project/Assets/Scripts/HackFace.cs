@@ -43,7 +43,7 @@ public class HackFace : MonoBehaviour
     {
         if(!moving && !cube.GetComponent<HackCube>().solved)
         {
-            StartCoroutine("Rotxplus");
+            StartCoroutine(Rot(Vector3.forward * 90, 0.5f));
             SetMoving(true);
         }
     }
@@ -62,19 +62,55 @@ public class HackFace : MonoBehaviour
         }
     }
 
+    IEnumerator Rot(Vector3 byAngles,float intime)
+    {
+        Quaternion fromAngle = transform.rotation;
+        Quaternion toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
+        for(float i = 0f; i <= 1; i+= Time.deltaTime/intime)
+        {
+            transform.rotation = Quaternion.Slerp(fromAngle,toAngle,i);
+            yield return null;
+        }
+        transform.rotation = toAngle;
+        SetMoving(false);
+    }
+
+    /*
+    Nah miss, that ain't me no more
     IEnumerator Rotxplus()
     {
         float t = 0;
         float degrees_rotated = 0;
-       while(degrees_rotated <= 90)
+        float target = 0f;
+         
+        if(transform.eulerAngles.z == 0f)
+        {
+            target = 90f;
+        }
+        if(transform.eulerAngles.z == 90f)
+        {
+            target = 180f;
+        }
+        if(transform.eulerAngles.z == 180f)
+        {
+            target = 270f;
+        }
+        if(transform.eulerAngles.z == 270f)
+        {
+            target = 0f;
+        }
+        print("target: " + target);
+       print("Current: " + transform.eulerAngles.z);
+       while(degrees_rotated < 90)
        {
-           transform.Rotate(0,0,-Mathf.Lerp(1.75f,0,t),Space.World);
+           transform.Rotate(0,0,Mathf.Lerp(1.75f,0,t),Space.World);
            degrees_rotated += Mathf.Lerp(1.75f,0,t);
            t+=.5f*Time.deltaTime;
            
            yield return null;
        }
+       transform.eulerAngles = new Vector3(transform.eulerAngles.x,transform.eulerAngles.y,target);
        SetMoving(false);
         
-    }
+    }*/
 }
