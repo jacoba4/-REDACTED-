@@ -108,6 +108,7 @@ public class PlayerCam : MonoBehaviour
                         slidingDoor.transform.position = Vector3.Lerp(start, slide, 15.0f);*/
                         //OpenSmallDoor();
                         slidingWall.move = true;
+                        //slidingWall.SendMessage("PlayNoise");
                         objectShader.isLit = false;
                         seenItem = false;
                         mainCanvas.SendMessage("ClearText");

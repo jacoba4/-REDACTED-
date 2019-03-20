@@ -16,6 +16,9 @@ public class WallRaise : MonoBehaviour
     private float journey;
 
     public AudioClip open;
+    public AudioSource source;
+
+    private bool play = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,8 @@ public class WallRaise : MonoBehaviour
 
         // Calculate the journey length.
         journey = Vector3.Distance(startPoint, endPoint);
+
+        //source = GameObject.GetComponent(AudioSource) as AudioSource;
     }
 
     // Update is called once per frame
@@ -39,6 +44,12 @@ public class WallRaise : MonoBehaviour
         }
         if (move == true)
         {
+            if (play == false)
+            {
+                play = true;
+                PlayNoise();
+                
+            }
             float distCovered = (Time.time - startTime) * speed;
 
             // Fraction of journey completed = current distance divided by total distance.
@@ -53,6 +64,6 @@ public class WallRaise : MonoBehaviour
     }
     void PlayNoise()
     {
-
+        source.PlayOneShot(open, 1f);
     }
 }
