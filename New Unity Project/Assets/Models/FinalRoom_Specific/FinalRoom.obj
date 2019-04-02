@@ -1,6 +1,6 @@
 # This file uses centimeters as units for non-parametric coordinates.
 
-mtllib Final Final Room.mtl
+mtllib FinalRoom.mtl
 g default
 v -66.491236 -8.686957 -24.698502
 v -66.151019 -8.686957 -25.287775
