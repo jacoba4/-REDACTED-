@@ -91,14 +91,19 @@ public class PlayerCam : MonoBehaviour
                         Destroy(hit.transform.gameObject);
                     }
 
-                    if (hit.transform.GetComponent<Camera>() != null)
+                    if (hit.transform.tag == "hack1")
+                    {
+                        
+                    }
+
+                    /*if (hit.transform.GetComponent<Camera>() != null)
                     {
                         print("yep");
                         allowPlayerControl = false;
                         GetComponent<Camera>().enabled = false;
                         PuzzleCam.GetComponent<Camera>().enabled = true;
                         
-                    }
+                    }*/
                     if (hit.transform.tag == "monitor")
                     {
                         /*Vector3 slide = new Vector3(0, 6.88f, 0);

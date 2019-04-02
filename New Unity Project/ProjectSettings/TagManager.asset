@@ -22,6 +22,8 @@ TagManager:
   - Cutscene Camera
   - Cutscene Camera 2
   - particle
+  - hack1
+  - hack1cam
   layers:
   - Default
   - TransparentFX

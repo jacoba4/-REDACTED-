@@ -63,7 +63,7 @@ public class PlayerMove : MonoBehaviour
         if(col.gameObject.transform.tag == "CameraBox")
         {
             print("detected");
-            SceneManager.LoadScene("PlayState", LoadSceneMode.Single);
+            SceneManager.LoadScene("Alpha", LoadSceneMode.Single);
         }
     }
 
