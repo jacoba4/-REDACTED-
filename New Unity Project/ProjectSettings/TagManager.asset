@@ -28,6 +28,8 @@ TagManager:
   - hack2cam
   - keycard
   - keycardreader
+  - vent2
+  - hack2
   layers:
   - Default
   - TransparentFX

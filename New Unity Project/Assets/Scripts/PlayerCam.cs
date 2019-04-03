@@ -26,11 +26,12 @@ public class PlayerCam : MonoBehaviour
     public WallRaise slidingWall;
 
     public hack1 firstPuzzleCam;
+    public hack2 secondPuzzleCam;
     public PlayerMove playerMove;
 
     private float startTime;
 
-    bool keycard;
+    public bool keycard;
 
     private void Awake()
     {
@@ -101,7 +102,7 @@ public class PlayerCam : MonoBehaviour
 
                     }
 
-                    if (hit.transform.tag == "keycard")
+                    if (hit.transform.tag == "keycard" || hit.transform.tag == "vent2" || hit.transform.tag == "hack2")
                     {
                         mainCanvas.SendMessage("PressE");
                         seenItem = true;
@@ -138,10 +139,25 @@ public class PlayerCam : MonoBehaviour
                         firstPuzzleCam.transform.GetComponent<Camera>().enabled = true;
                         transform.GetComponent<Camera>().enabled = false;
                     }
+
+                    if(hit.transform.tag == "hack2")
+                    {
+                        mainCanvas.SendMessage("ClearText");
+                        
+                        allowPlayerControl = false;
+                        playerMove.allowPlayerMovement = false;
+                        secondPuzzleCam.transform.GetComponent<Camera>().enabled = true;
+                        transform.GetComponent<Camera>().enabled = false;
+                    }
                     if (hit.transform.tag == "Vent")
                     {
                         hit.transform.SendMessage("MoveTheVent");
                         ventMoved = true;
+                    }
+
+                    if(hit.transform.tag == "vent2")
+                    {
+                        hit.transform.SendMessage("Move");
                     }
 
                     if (hit.transform.tag == "keycard")
