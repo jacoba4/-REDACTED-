@@ -11,6 +11,8 @@ public class HackCube : MonoBehaviour
     public PlayerCam player;
     public GameObject link;
     public Camera disable;
+    public HackFace begin;
+    public HackFace end;
 
 
     // Start is called before the first frame update
@@ -153,7 +155,7 @@ public class HackCube : MonoBehaviour
     {
         transform.eulerAngles = new Vector3(Mathf.Round(transform.eulerAngles.x),Mathf.Round(transform.eulerAngles.y),Mathf.Round(transform.eulerAngles.z));
     }
-
+    
     void CheckSol()
     {
         bool allpowered = true;
@@ -186,11 +188,64 @@ public class HackCube : MonoBehaviour
 
     }
 
+
+    /* WIP: ALMOST DONE
+    void CheckSol(HackFace x)
+    {
+        if(x == end)
+        {
+            Solved();
+            return;
+        }
+        
+        HackFace current = x;
+        bool visited = false;
+
+        for(int i = 0; i < 10; i++)
+        {
+            if(current == end)
+            {
+                Solved();
+                break;
+            }
+
+            List<HackFace> previous = new List<HackFace>();
+            previous.Add(begin);
+
+            foreach(Transform edge in current.transform)
+            {
+                HackEdge cedge = edge.GetComponent<HackEdge>();
+                HackEdge oedge = cedge.other.GetComponent<HackEdge>();
+                if(cedge.mode == HackEdge.Modes.Give && oedge.mode == HackEdge.Modes.Give)
+                {
+                    for(int j = 0; j < previous.Count; j++)
+                    {
+                        if(oedge.transform.parent.GetComponent<HackFace>() == previous[j])
+                        {
+                            visited = true;
+                            break;
+                        }
+                    }
+
+                    if(visited)
+                    {
+                        continue;
+                    }
+
+                    previous.Add(oedge.transform.parent.GetComponent<HackFace>());
+                    visited = false;
+                    current = oedge.transform.parent.GetComponent<HackFace>();
+                }
+            }
+        }
+    }*/
+
     void Solved()
     {
+        print("YOSH!");
         disable.enabled = false;
         player.SendMessage("Solved");
-        link.SendMessage("Solved");
+        //link.SendMessage("Solved");
     }
 
     

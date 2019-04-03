@@ -93,7 +93,16 @@ public class PlayerCam : MonoBehaviour
 
                     if (hit.transform.tag == "hack1")
                     {
+                        mainCanvas.SendMessage("PressE");
+                        seenItem = true;
+
+                        lastSeen = hit.transform.gameObject;
+                        objectShader = lastSeen.GetComponent<LightUpObject>();
+
+                        objectShader.isLit = true;
                         
+                        allowPlayerControl = false;
+                        hit.transform.GetComponent<hack1>().SendMessage("Activate");
                     }
 
                     /*if (hit.transform.GetComponent<Camera>() != null)
