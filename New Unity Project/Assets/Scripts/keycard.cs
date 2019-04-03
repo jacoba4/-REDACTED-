@@ -18,6 +18,6 @@ public class keycard : MonoBehaviour
 
     void Pickup()
     {
-        Destroy(gameObject);
+        transform.position = new Vector3(43214124f,2314234f,12342134f);
     }
 }

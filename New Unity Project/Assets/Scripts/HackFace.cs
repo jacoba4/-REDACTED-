@@ -15,7 +15,7 @@ public class HackFace : MonoBehaviour
     {
         moving = false;
         faces = GameObject.FindGameObjectsWithTag("Face");
-        cube = GameObject.FindGameObjectWithTag("Cube");
+        cube = transform.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -41,8 +41,10 @@ public class HackFace : MonoBehaviour
 
     void OnMouseDown()
     {
+        print("meme2s");
         if(!moving && !cube.GetComponent<HackCube>().solved)
         {
+            print("memes");
             StartCoroutine(Rot(Vector3.forward * 90, 0.5f));
             SetMoving(true);
         }
