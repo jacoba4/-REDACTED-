@@ -24,6 +24,7 @@ TagManager:
   - particle
   - hack1
   - hack1cam
+  - Vent
   layers:
   - Default
   - TransparentFX

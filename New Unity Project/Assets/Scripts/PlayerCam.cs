@@ -19,6 +19,8 @@ public class PlayerCam : MonoBehaviour
     public GameObject lastSeen;
     public LightUpObject objectShader;
 
+    private bool ventMoved;
+
     public GameObject PuzzleCam;
     public GameObject slidingDoor;
     public WallRaise slidingWall;
@@ -40,6 +42,7 @@ public class PlayerCam : MonoBehaviour
     void Start()
     {
         crouch = false;
+        ventMoved = false;
     }
 
     // Update is called once per frame
@@ -73,7 +76,8 @@ public class PlayerCam : MonoBehaviour
                 if (seenItem == false && hit.transform.tag != "Untagged")
                 {
 
-                    if (hit.transform.tag != "monitor" || slidingWall.move == false && hit.transform.tag != "hack1")
+                    if (hit.transform.tag != "monitor" || slidingWall.move == false || hit.transform.tag != "hack1" || (
+                        ventMoved == true && hit.transform.tag == "Vent"))
                     {
                         mainCanvas.SendMessage("PressE");
                         seenItem = true;
@@ -110,6 +114,11 @@ public class PlayerCam : MonoBehaviour
                         playerMove.allowPlayerMovement = false;
                         firstPuzzleCam.SendMessage("Activate");
                         transform.GetComponent<Camera>().enabled = false;
+                    }
+                    if (hit.transform.tag == "Vent")
+                    {
+                        hit.transform.SendMessage("MoveTheVent");
+                        ventMoved = true;
                     }
 
                     /*if (hit.transform.GetComponent<Camera>() != null)
