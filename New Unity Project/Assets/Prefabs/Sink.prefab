@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 7436704841626814208}
   - component: {fileID: 9011270151014238364}
   - component: {fileID: 2514528907726013923}
+  - component: {fileID: 8506505537092783103}
   m_Layer: 0
   m_Name: initialShadingGroup_polySurface12
   m_TagString: Untagged
@@ -108,3 +109,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8506505537092783103
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8556668397356375092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 959af010afb1e9f479352aed6fa4a438, type: 3}
