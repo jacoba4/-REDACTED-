@@ -9,6 +9,7 @@ public class HackCube : MonoBehaviour
     GameObject[] faces;
     public bool solved;
     public PlayerCam player;
+    public PlayerMove playermove;
     public GameObject link;
     public Camera disable;
     public HackFace begin;
@@ -245,7 +246,8 @@ public class HackCube : MonoBehaviour
         print("YOSH!");
         disable.enabled = false;
         player.SendMessage("Solved");
-        //link.SendMessage("Solved");
+        playermove.allowPlayerMovement = true;
+        link.SendMessage("Solved");
     }
 
     

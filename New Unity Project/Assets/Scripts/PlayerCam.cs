@@ -30,6 +30,8 @@ public class PlayerCam : MonoBehaviour
 
     private float startTime;
 
+    bool keycard;
+
     private void Awake()
     {
         LockCursor();
@@ -43,6 +45,7 @@ public class PlayerCam : MonoBehaviour
     {
         crouch = false;
         ventMoved = false;
+        keycard = false;
     }
 
     // Update is called once per frame
@@ -61,6 +64,7 @@ public class PlayerCam : MonoBehaviour
                         print("crouch");
                         transform.localPosition = new Vector3(0,-.127f,0);
                         crouch = true;
+                        transform.parent.GetComponent<CharacterController>().height = .75f;
                     }
                 }
                 if (Input.GetKeyUp(KeyCode.LeftControl))
@@ -69,6 +73,7 @@ public class PlayerCam : MonoBehaviour
                     {
                         transform.localPosition = new Vector3(0,.311f,0);
                         crouch = false;
+                        transform.parent.GetComponent<CharacterController>().height = 2f;
                     }
                 }
             if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))
@@ -95,6 +100,23 @@ public class PlayerCam : MonoBehaviour
                         lastSeen = hit.transform.gameObject;
 
                     }
+
+                    if (hit.transform.tag == "keycard")
+                    {
+                        mainCanvas.SendMessage("PressE");
+                        seenItem = true;
+
+                        lastSeen = hit.transform.gameObject;
+                    }
+
+                    if (hit.transform.tag == "keycardreader")
+                    {
+                        if(keycard)
+                        {
+                            mainCanvas.SendMessage("PressE");
+                            seenItem = true;
+                        }
+                    }
                     
                 }
                 if (Input.GetMouseButtonDown(0))
@@ -108,17 +130,32 @@ public class PlayerCam : MonoBehaviour
 
                     if (hit.transform.tag == "hack1")
                     {
+                        print("dufuq");
                         mainCanvas.SendMessage("ClearText");
                         
                         allowPlayerControl = false;
                         playerMove.allowPlayerMovement = false;
-                        firstPuzzleCam.SendMessage("Activate");
+                        firstPuzzleCam.transform.GetComponent<Camera>().enabled = true;
                         transform.GetComponent<Camera>().enabled = false;
                     }
                     if (hit.transform.tag == "Vent")
                     {
                         hit.transform.SendMessage("MoveTheVent");
                         ventMoved = true;
+                    }
+
+                    if (hit.transform.tag == "keycard")
+                    {
+                        hit.transform.GetComponent<keycard>().SendMessage("Pickup");
+                        keycard = true;
+                    }
+
+                    if (hit.transform.tag == "keycardreader")
+                    {
+                        if(keycard)
+                        {
+                            hit.transform.GetComponent<keycardreader>().SendMessage("Open");
+                        }
                     }
 
                     /*if (hit.transform.GetComponent<Camera>() != null)
