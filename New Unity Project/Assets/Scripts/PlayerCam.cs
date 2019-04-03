@@ -23,6 +23,9 @@ public class PlayerCam : MonoBehaviour
     public GameObject slidingDoor;
     public WallRaise slidingWall;
 
+    public hack1 firstPuzzleCam;
+    public PlayerMove playerMove;
+
     private float startTime;
 
     private void Awake()
@@ -70,7 +73,7 @@ public class PlayerCam : MonoBehaviour
                 if (seenItem == false && hit.transform.tag != "Untagged")
                 {
 
-                    if (hit.transform.tag != "monitor" || slidingWall.move == false)
+                    if (hit.transform.tag != "monitor" || slidingWall.move == false && hit.transform.tag != "hack1")
                     {
                         mainCanvas.SendMessage("PressE");
                         seenItem = true;
@@ -79,6 +82,14 @@ public class PlayerCam : MonoBehaviour
                         objectShader = lastSeen.GetComponent<LightUpObject>();
 
                         objectShader.isLit = true;
+                    }
+                    if (hit.transform.tag == "hack1")
+                    {
+                        mainCanvas.SendMessage("PressE");
+                        seenItem = true;
+
+                        lastSeen = hit.transform.gameObject;
+
                     }
                     
                 }
@@ -93,16 +104,12 @@ public class PlayerCam : MonoBehaviour
 
                     if (hit.transform.tag == "hack1")
                     {
-                        mainCanvas.SendMessage("PressE");
-                        seenItem = true;
-
-                        lastSeen = hit.transform.gameObject;
-                        objectShader = lastSeen.GetComponent<LightUpObject>();
-
-                        objectShader.isLit = true;
+                        mainCanvas.SendMessage("ClearText");
                         
                         allowPlayerControl = false;
-                        hit.transform.GetComponent<hack1>().SendMessage("Activate");
+                        playerMove.allowPlayerMovement = false;
+                        firstPuzzleCam.SendMessage("Activate");
+                        transform.GetComponent<Camera>().enabled = false;
                     }
 
                     /*if (hit.transform.GetComponent<Camera>() != null)

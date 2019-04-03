@@ -11,7 +11,12 @@ ModelImporter:
     2300000: initialShadingGroup_polySurface12
     3300000: initialShadingGroup_polySurface12
     4300000: initialShadingGroup_polySurface12
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: initialShadingGroup_polySurface12Mat
+    second: {fileID: 2100000, guid: 19cf2483002c52a49b0828a95fa7a236, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
