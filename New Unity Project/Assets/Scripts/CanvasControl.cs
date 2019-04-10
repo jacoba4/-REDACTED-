@@ -7,23 +7,35 @@ public class CanvasControl : MonoBehaviour
 {
     public Text pressEText;
     public Image detectionImage;
+    public Sprite controls;
     public Sprite firstDocument;
     public Sprite secondDocument;
     public Sprite thirdDocument;
+    public Sprite fourthDocument;
+    public Sprite fifthDocument;
+    public Sprite sixthDocument;
+    public Sprite placeholder;
     public Image documentImageSpace;
 
     public Sprite detectedEye;
     public Sprite transparentPhoto;
 
     public int docCount;
-    public List<string> collectedDocuments;
-    public bool detected = false;
+    /*public List<string> collectedDocuments;
+    public bool detected = false;*/
     public bool lookingAtDocuments = false;
 
     public PlayerCam inUseCamera;
     public PlayerMove playerMovement;
 
     public int docNum;
+
+    public bool firstFound;
+    public bool secondFound;
+    public bool thirdFound;
+    public bool fourthFound;
+    public bool fifthFound;
+    public bool sixthFound;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +49,13 @@ public class CanvasControl : MonoBehaviour
         docNum = 0;
 
         lookingAtDocuments = false;
+
+        firstFound = false;
+        secondFound = false;
+        thirdFound = false;
+        fourthFound = false;
+        fifthFound = false;
+        sixthFound = false;
     }
 
     // Update is called once per frame
@@ -59,7 +78,7 @@ public class CanvasControl : MonoBehaviour
             }
             if (Input.GetKeyUp(KeyCode.D))
             {
-                if (docNum != 2)
+                if (docNum != 6)
                 {
                     docNum += 1;
                     PageTurn();
@@ -115,15 +134,73 @@ public class CanvasControl : MonoBehaviour
     {
         if (docNum == 0)
         {
-            documentImageSpace.sprite = firstDocument;
+            documentImageSpace.sprite = controls;
         }
         if (docNum == 1)
         {
-            documentImageSpace.sprite = secondDocument;
+            if (firstFound == true)
+            {
+                documentImageSpace.sprite = firstDocument;
+            }
+            else
+            {
+                documentImageSpace.sprite = placeholder;
+            }
         }
         if (docNum == 2)
         {
-            documentImageSpace.sprite = thirdDocument;
+            if (secondFound = true)
+            {
+                documentImageSpace.sprite = secondDocument;
+            }
+            else
+            {
+                documentImageSpace.sprite = placeholder;
+            }
+        }
+        if (docNum == 3)
+        {
+            if (thirdFound = true)
+            {
+                documentImageSpace.sprite = thirdDocument;
+            }
+            else
+            {
+                documentImageSpace.sprite = placeholder;
+            }
+        }
+        if (docNum == 4)
+        {
+            if (fourthFound = true)
+            {
+                documentImageSpace.sprite = fourthDocument;
+            }
+            else
+            {
+                documentImageSpace.sprite = placeholder;
+            }
+        }
+        if (docNum == 5)
+        {
+            if (fifthFound = true)
+            {
+                documentImageSpace.sprite = fifthDocument;
+            }
+            else
+            {
+                documentImageSpace.sprite = placeholder;
+            }
+        }
+        if (docNum == 6)
+        {
+            if (sixthFound = true)
+            {
+                documentImageSpace.sprite = sixthDocument;
+            }
+            else
+            {
+                documentImageSpace.sprite = placeholder;
+            }
         }
     }
 }

@@ -58,6 +58,10 @@ public class PlayerCam : MonoBehaviour
         {
             CameraRotation();
             Debug.DrawRay(transform.position,transform.forward, Color.green,.01f);
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.P))
+            {
+                Application.Quit();
+            }
             if (Input.GetKeyDown(KeyCode.LeftControl))
                 {
                     if(crouch == false)
@@ -124,8 +128,32 @@ public class PlayerCam : MonoBehaviour
                 {
                     if (hit.transform.tag == "document")
                     {
-                        canControl.docCount += 1;
-                        canControl.collectedDocuments.Add(hit.transform.gameObject.name);
+                        //canControl.docCount += 1;
+                        //canControl.collectedDocuments.Add(hit.transform.gameObject.name);
+                        if (hit.transform.gameObject.name == "first")
+                        {
+                            canControl.firstFound = true;
+                        }
+                        if (hit.transform.gameObject.name == "second")
+                        {
+                            canControl.secondFound = true;
+                        }
+                        if (hit.transform.gameObject.name == "third")
+                        {
+                            canControl.thirdFound = true;
+                        }
+                        if (hit.transform.gameObject.name == "fourth")
+                        {
+                            canControl.fourthFound = true;
+                        }
+                        if (hit.transform.gameObject.name == "fifth")
+                        {
+                            canControl.fifthFound = true;
+                        }
+                        if (hit.transform.gameObject.name == "sixth")
+                        {
+                            canControl.sixthFound = true;
+                        }
                         Destroy(hit.transform.gameObject);
                     }
 
@@ -201,6 +229,8 @@ public class PlayerCam : MonoBehaviour
                     {
                         GameObject.FindGameObjectWithTag("FinalPuzzleCam").SendMessage("SwitchHere");
                         transform.GetComponent<Camera>().enabled = false;
+                        playerMove.allowPlayerMovement = false;
+                        allowPlayerControl = false;
                     }
                 }
                 
@@ -282,6 +312,7 @@ public class PlayerCam : MonoBehaviour
     public void Solved()
     {
         allowPlayerControl = true;
+        playerMove.allowPlayerMovement = true;
         GetComponent<Camera>().enabled = true;
         PuzzleCam.GetComponent<Camera>().enabled = false;
     }
