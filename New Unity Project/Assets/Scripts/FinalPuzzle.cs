@@ -43,6 +43,7 @@ public class FinalPuzzle : MonoBehaviour
                 playercam.enabled = true;
                 Cursor.visible = false;
                 playercam.transform.GetComponent<PlayerCam>().SendMessage("LockCursor");
+                playercam.SendMessage("Solved");
             }
         }
     }

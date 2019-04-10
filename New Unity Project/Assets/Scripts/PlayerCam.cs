@@ -58,6 +58,10 @@ public class PlayerCam : MonoBehaviour
         {
             CameraRotation();
             Debug.DrawRay(transform.position,transform.forward, Color.green,.01f);
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.P))
+            {
+                Application.Quit();
+            }
             if (Input.GetKeyDown(KeyCode.LeftControl))
                 {
                     if(crouch == false)
@@ -201,6 +205,8 @@ public class PlayerCam : MonoBehaviour
                     {
                         GameObject.FindGameObjectWithTag("FinalPuzzleCam").SendMessage("SwitchHere");
                         transform.GetComponent<Camera>().enabled = false;
+                        playerMove.allowPlayerMovement = false;
+                        allowPlayerControl = false;
                     }
                 }
                 
@@ -282,6 +288,7 @@ public class PlayerCam : MonoBehaviour
     public void Solved()
     {
         allowPlayerControl = true;
+        playerMove.allowPlayerMovement = true;
         GetComponent<Camera>().enabled = true;
         PuzzleCam.GetComponent<Camera>().enabled = false;
     }
