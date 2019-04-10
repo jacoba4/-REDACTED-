@@ -58,7 +58,7 @@ public class PlayerCam : MonoBehaviour
         {
             CameraRotation();
             Debug.DrawRay(transform.position,transform.forward, Color.green,.01f);
-            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.P))
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.P))
             {
                 Application.Quit();
             }
