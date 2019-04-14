@@ -21,8 +21,8 @@ public class CanvasControl : MonoBehaviour
     public Sprite transparentPhoto;
 
     public int docCount;
-    /*public List<string> collectedDocuments;
-    public bool detected = false;*/
+    //public List<string> collectedDocuments;
+    public bool detected = false;
     public bool lookingAtDocuments = false;
 
     public PlayerCam inUseCamera;
