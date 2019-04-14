@@ -197,7 +197,7 @@ public class PlayerCam : MonoBehaviour
 
                     if(hit.transform.tag == "vent2")
                     {
-                        hit.transform.SendMessage("Move");
+                        hit.transform.SendMessage("MoveTheVent");
                     }
 
                     if (hit.transform.tag == "keycard")

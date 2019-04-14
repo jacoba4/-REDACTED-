@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class finaldoorright : MonoBehaviour
+public class Door1Move : MonoBehaviour
 {
     private Vector3 shift;
     private Vector3 start;
@@ -13,7 +13,7 @@ public class finaldoorright : MonoBehaviour
     void Start()
     {
         start = transform.localPosition;
-        shift = new Vector3(10.66f,0f,0f);
+        shift = new Vector3(-170f,0f,0f);
         i = 0;
         speed = .05f;
     }
@@ -23,7 +23,7 @@ public class finaldoorright : MonoBehaviour
     {
         
     }
-    void Solved()
+    void MoveTheDoor()
     {
         //transform.localPosition = new Vector3(160f,0f,0f);
         StartCoroutine("doormove");
@@ -37,8 +37,6 @@ public class finaldoorright : MonoBehaviour
             i+=speed;
             yield return null;
         }
-
-        transform.localPosition = new Vector3(12f,0f,-6f);
         
     }
 }
