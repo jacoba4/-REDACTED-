@@ -157,6 +157,8 @@ public class HackCube : MonoBehaviour
         transform.eulerAngles = new Vector3(Mathf.Round(transform.eulerAngles.x),Mathf.Round(transform.eulerAngles.y),Mathf.Round(transform.eulerAngles.z));
     }
     
+
+    /*
     void CheckSol()
     {
         bool allpowered = true;
@@ -187,9 +189,40 @@ public class HackCube : MonoBehaviour
             Solved();
         }
 
+    }*/
+
+    void CheckSol()
+    {   
+        bool oops = false;
+        foreach (Transform face in transform)
+        {
+            if(oops)
+            {
+                break;
+            }
+            foreach(Transform edge in face)
+            {
+                HackEdge thisedge = edge.GetComponent<HackEdge>();
+                HackEdge otheredge = thisedge.other.GetComponent<HackEdge>();
+                if(thisedge.mode == HackEdge.Modes.None)
+                {
+                    continue;
+                }
+                if(thisedge.mode != HackEdge.Modes.Give || otheredge.mode != HackEdge.Modes.Give)
+                {
+                    oops = true;
+                    break;
+                }
+
+            }
+        }
+
+        if(!oops)
+        {
+            Solved();
+            return;
+        }
     }
-
-
     /* WIP: ALMOST DONE
     void CheckSol(HackFace x)
     {
@@ -248,6 +281,7 @@ public class HackCube : MonoBehaviour
         player.SendMessage("Solved");
         playermove.allowPlayerMovement = true;
         link.SendMessage("Solved");
+        transform.GetComponent<HackCube>().enabled = false;
     }
 
     

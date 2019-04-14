@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.35380688, g: 0.472013, b: 0.4791466, a: 1}
+  m_IndirectSpecularColor: {r: 0.35380664, g: 0.4720124, b: 0.47914565, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5764,7 +5764,7 @@ PrefabInstance:
     - target: {fileID: 3877615004211876987, guid: 2ec194e0ca4af5f45b61eacb9bf6f815,
         type: 3}
       propertyPath: mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3877615004536298653, guid: 2ec194e0ca4af5f45b61eacb9bf6f815,
         type: 3}
@@ -5824,12 +5824,12 @@ PrefabInstance:
     - target: {fileID: 3877615003188183485, guid: 2ec194e0ca4af5f45b61eacb9bf6f815,
         type: 3}
       propertyPath: mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3877615003700900549, guid: 2ec194e0ca4af5f45b61eacb9bf6f815,
         type: 3}
       propertyPath: mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3877615003700900549, guid: 2ec194e0ca4af5f45b61eacb9bf6f815,
         type: 3}
@@ -5839,12 +5839,12 @@ PrefabInstance:
     - target: {fileID: 3877615003754444823, guid: 2ec194e0ca4af5f45b61eacb9bf6f815,
         type: 3}
       propertyPath: mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3877615004309744379, guid: 2ec194e0ca4af5f45b61eacb9bf6f815,
         type: 3}
       propertyPath: mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3877615004597187413, guid: 2ec194e0ca4af5f45b61eacb9bf6f815,
         type: 3}
@@ -5982,12 +5982,12 @@ PrefabInstance:
     - target: {fileID: 6119060146687904215, guid: 7518945883305114ca9f7f8ebe4d0f35,
         type: 3}
       propertyPath: mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6119060147116469637, guid: 7518945883305114ca9f7f8ebe4d0f35,
         type: 3}
       propertyPath: mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6119060148128072484, guid: 7518945883305114ca9f7f8ebe4d0f35,
         type: 3}
@@ -5995,6 +5995,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6119060148320811163, guid: 7518945883305114ca9f7f8ebe4d0f35,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6119060148088897244, guid: 7518945883305114ca9f7f8ebe4d0f35,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6119060148654340508, guid: 7518945883305114ca9f7f8ebe4d0f35,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6119060148778659965, guid: 7518945883305114ca9f7f8ebe4d0f35,
         type: 3}
       propertyPath: mode
       value: 1
@@ -9906,19 +9921,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressEText: {fileID: 991720564}
   detectionImage: {fileID: 695618383}
+  controls: {fileID: 0}
   firstDocument: {fileID: 21300000, guid: 66ad5e9e32405d04494369445d01c46a, type: 3}
   secondDocument: {fileID: 21300000, guid: 40bd5ff40e1ed6842b80567e63309bb6, type: 3}
   thirdDocument: {fileID: 21300000, guid: b4c401a5d8ddaaa479cd11e6d3a06547, type: 3}
+  fourthDocument: {fileID: 0}
+  fifthDocument: {fileID: 0}
+  sixthDocument: {fileID: 0}
+  placeholder: {fileID: 0}
   documentImageSpace: {fileID: 1652235769}
   detectedEye: {fileID: 0}
   transparentPhoto: {fileID: 21300000, guid: d38def4b47431764da9340e1c3065e23, type: 3}
   docCount: 0
-  collectedDocuments: []
   detected: 0
   lookingAtDocuments: 0
   inUseCamera: {fileID: 1322969078}
   playerMovement: {fileID: 74781696}
   docNum: 0
+  firstFound: 0
+  secondFound: 0
+  thirdFound: 0
+  fourthFound: 0
+  fifthFound: 0
+  sixthFound: 0
 --- !u!4 &886144236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: d96e31d6b7909214da982f2027141164,
