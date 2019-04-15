@@ -13,7 +13,7 @@ public class VentMove : MonoBehaviour
     void Start()
     {
         start = transform.localPosition;
-        shift = new Vector3(160f,0f,0f);
+        shift = new Vector3(167f,0f,0f);
         i = 0;
     }
 

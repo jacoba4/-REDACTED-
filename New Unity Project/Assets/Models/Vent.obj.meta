@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: 7aa1a6ebb158afc4a9630d393e5a5814
+guid: b61df4d2d83c08d4aa57d7bf34a4dd70
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: polySurface3
+    100000: pCube40
     100002: //RootNode
-    400000: polySurface3
+    400000: pCube40
     400002: //RootNode
-    2100000: polySurface3Mat
-    2100002: initialShadingGroup
-    2300000: polySurface3
-    3300000: polySurface3
-    4300000: polySurface3
+    2100000: initialShadingGroup
+    2300000: pCube40
+    3300000: pCube40
+    4300000: pCube40
   externalObjects: {}
   materials:
     importMaterials: 1
