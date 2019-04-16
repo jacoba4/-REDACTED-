@@ -9,6 +9,7 @@ public class block : MonoBehaviour
     Renderer render;
     Color initialColor;
     Color finalColor;
+    public CameraViewBox redBox;
 
     // Start is called before the first frame update
     void Start()
@@ -31,5 +32,6 @@ public class block : MonoBehaviour
         print("block disable");
         GetComponent<BoxCollider>().enabled = false;
         mat.color = initialColor;
+        redBox.off = true;
     }
 }
