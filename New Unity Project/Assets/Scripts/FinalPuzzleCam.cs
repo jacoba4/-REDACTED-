@@ -6,6 +6,7 @@ public class FinalPuzzleCam : MonoBehaviour
 {
     public GameObject crosshair;
     public GameObject finalpuzzle;
+    public AudioSource ambientsource;
     
     // Start is called before the first frame update
     void Start()
@@ -28,12 +29,19 @@ public class FinalPuzzleCam : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         finalpuzzle.GetComponent<FinalPuzzleMusic>().play = true;
+        ambientsource.Pause();
     }
 
     void SwitchOff()
     {
         transform.GetComponent<Camera>().enabled = false;
         crosshair.SetActive(true);
+        if(finalpuzzle.GetComponent<FinalPuzzle>().currsymbol != 6)
+        {
+            ambientsource.Play();
+            finalpuzzle.GetComponent<FinalPuzzleMusic>().play = false;
+            finalpuzzle.GetComponent<AudioSource>().Stop();
+        }
         //Turning this off for dramatic effect
         //finalpuzzle.GetComponent<FinalPuzzleMusic>().play = false;
     }

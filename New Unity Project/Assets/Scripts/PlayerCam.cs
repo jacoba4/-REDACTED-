@@ -108,7 +108,7 @@ public class PlayerCam : MonoBehaviour
                         lastSeen = hit.transform.gameObject;
                         objectShader = lastSeen.GetComponent<LightUpObject>();
 
-                        objectShader.isLit = true;
+                        //objectShader.isLit = true;
                     }
                     if (hit.transform.tag == "hack1")
                     {
@@ -278,7 +278,7 @@ public class PlayerCam : MonoBehaviour
                         {
                             mainCanvas.SendMessage("ClearText");
                             seenItem = false;
-                            objectShader.isLit = false;
+                            //objectShader.isLit = false;
                         }
                     }
                 }
