@@ -5,16 +5,22 @@ using UnityEngine;
 public class FinalPuzzleCam : MonoBehaviour
 {
     public GameObject crosshair;
+    bool play;
+    public AudioClip[] musicclips;
     // Start is called before the first frame update
     void Start()
     {
         transform.GetComponent<Camera>().enabled = false;
+        play = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(play)
+        {
+            Music();
+        }
     }
 
     void SwitchHere()
@@ -24,12 +30,19 @@ public class FinalPuzzleCam : MonoBehaviour
         crosshair.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
+        play = true;
     }
 
     void SwitchOff()
     {
         transform.GetComponent<Camera>().enabled = false;
         crosshair.SetActive(true);
+        play = false;
+    }
+
+
+    void Music()
+    {
+
     }
 }
