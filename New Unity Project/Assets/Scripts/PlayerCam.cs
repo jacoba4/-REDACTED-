@@ -19,6 +19,9 @@ public class PlayerCam : MonoBehaviour
     public GameObject lastSeen;
     public LightUpObject objectShader;
 
+    public Light directionalLight;
+    public GameObject[] blackLightObjects;
+
     private bool ventMoved;
 
     public GameObject PuzzleCam;
@@ -47,11 +50,21 @@ public class PlayerCam : MonoBehaviour
         crouch = false;
         ventMoved = false;
         keycard = false;
+        directionalLight.intensity = 0;
+        blackLightObjects = GameObject.FindGameObjectsWithTag("blacklight");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            BlackLight();
+        }
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            BlackLightOff();
+        }
         Canvas mainCanvas = GameObject.FindObjectOfType<Canvas>();
         RaycastHit hit;
         if (allowPlayerControl == true)
@@ -345,4 +358,21 @@ public class PlayerCam : MonoBehaviour
         slide += slidingDoor.transform.position;
         slidingDoor.transform.position = Vector3.Lerp(start, slide, 15.0f);
     }
+    void BlackLight()
+    {
+        directionalLight.intensity = 1;
+        /*foreach (GameObject enableObject in blackLightObjects)
+        {
+            enableObject.enable;
+        }*/
+    }
+    void BlackLightOff()
+    {
+        directionalLight.intensity = 0;
+        /*foreach (GameObject enableObject in blackLightObjects)
+        {
+            enableObject.disable;
+        }*/
+    }
+
 }
