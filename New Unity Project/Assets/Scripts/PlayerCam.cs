@@ -187,6 +187,7 @@ public class PlayerCam : MonoBehaviour
                             canControl.sixthFound = true;
                         }
                         Destroy(hit.transform.gameObject);
+                        mainCanvas.SendMessage("ClearText");
                         lastSeen = null;
                         seenItem = false;
                         objectShader = null;

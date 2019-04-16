@@ -121,7 +121,7 @@ public class CanvasControl : MonoBehaviour
     {
         inUseCamera.allowPlayerControl = false;
         playerMovement.allowPlayerMovement = false;
-        documentImageSpace.sprite = firstDocument;
+        documentImageSpace.sprite = controls;
     }
     void ClearDocs()
     {
