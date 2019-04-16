@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FinalPuzzleMusic : MonoBehaviour
 {
-    bool play;
+    public bool play;
     public AudioClip[] musicclips;
     public AudioSource source;
     public int numsolved;
