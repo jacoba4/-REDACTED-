@@ -36,6 +36,9 @@ public class PlayerCam : MonoBehaviour
 
     public bool keycard;
 
+    public GameObject hack1;    
+    public GameObject hack2;
+
     private void Awake()
     {
         LockCursor();
@@ -197,7 +200,7 @@ public class PlayerCam : MonoBehaviour
                     {
                         print("dufuq");
                         mainCanvas.SendMessage("ClearText");
-                        
+                        hack1.GetComponent<HackCube>().enabled = true;
                         allowPlayerControl = false;
                         playerMove.allowPlayerMovement = false;
                         firstPuzzleCam.transform.GetComponent<Camera>().enabled = true;
@@ -207,7 +210,7 @@ public class PlayerCam : MonoBehaviour
                     if(hit.transform.tag == "hack2")
                     {
                         mainCanvas.SendMessage("ClearText");
-                        
+                        hack2.GetComponent<HackCube>().enabled = true;
                         allowPlayerControl = false;
                         playerMove.allowPlayerMovement = false;
                         secondPuzzleCam.transform.GetComponent<Camera>().enabled = true;
