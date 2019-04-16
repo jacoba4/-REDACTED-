@@ -94,7 +94,7 @@ public class PlayerCam : MonoBehaviour
                     {
                         transform.localPosition = new Vector3(0,.311f,0);
                         crouch = false;
-                        transform.parent.GetComponent<CharacterController>().height = 2f;
+                        transform.parent.GetComponent<CharacterController>().height = 1.8f;
                     }
                 }
             if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))
