@@ -31,6 +31,7 @@ TagManager:
   - vent2
   - hack2
   - door1
+  - document
   layers:
   - Default
   - TransparentFX

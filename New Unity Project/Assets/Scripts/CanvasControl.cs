@@ -149,7 +149,7 @@ public class CanvasControl : MonoBehaviour
         }
         if (docNum == 2)
         {
-            if (secondFound = true)
+            if (secondFound == true)
             {
                 documentImageSpace.sprite = secondDocument;
             }
@@ -160,7 +160,7 @@ public class CanvasControl : MonoBehaviour
         }
         if (docNum == 3)
         {
-            if (thirdFound = true)
+            if (thirdFound == true)
             {
                 documentImageSpace.sprite = thirdDocument;
             }
@@ -171,7 +171,7 @@ public class CanvasControl : MonoBehaviour
         }
         if (docNum == 4)
         {
-            if (fourthFound = true)
+            if (fourthFound == true)
             {
                 documentImageSpace.sprite = fourthDocument;
             }
@@ -182,7 +182,7 @@ public class CanvasControl : MonoBehaviour
         }
         if (docNum == 5)
         {
-            if (fifthFound = true)
+            if (fifthFound == true)
             {
                 documentImageSpace.sprite = fifthDocument;
             }
@@ -193,7 +193,7 @@ public class CanvasControl : MonoBehaviour
         }
         if (docNum == 6)
         {
-            if (sixthFound = true)
+            if (sixthFound == true)
             {
                 documentImageSpace.sprite = sixthDocument;
             }
@@ -202,5 +202,10 @@ public class CanvasControl : MonoBehaviour
                 documentImageSpace.sprite = placeholder;
             }
         }
+    }
+
+    void Safe()
+    {
+        
     }
 }

@@ -134,6 +134,13 @@ public class PlayerCam : MonoBehaviour
                             seenItem = true;
                         }
                     }
+
+                    if(hit.transform.tag == "document")
+                    {
+                        mainCanvas.SendMessage("PressE");
+                        seenItem = true;
+                        lastSeen = hit.transform.gameObject;
+                    }
                     
                 }
                 if (Input.GetMouseButtonDown(0))
@@ -142,31 +149,34 @@ public class PlayerCam : MonoBehaviour
                     {
                         //canControl.docCount += 1;
                         //canControl.collectedDocuments.Add(hit.transform.gameObject.name);
-                        if (hit.transform.gameObject.name == "first")
+                        if (hit.transform.gameObject.name == "Document(Harper)")
                         {
                             canControl.firstFound = true;
                         }
-                        if (hit.transform.gameObject.name == "second")
+                        if (hit.transform.gameObject.name == "Document(Dr. Perez) ")
                         {
                             canControl.secondFound = true;
                         }
-                        if (hit.transform.gameObject.name == "third")
+                        if (hit.transform.gameObject.name == "Document(Resignation)")
                         {
                             canControl.thirdFound = true;
                         }
-                        if (hit.transform.gameObject.name == "fourth")
+                        if (hit.transform.gameObject.name == "Document(Autopsy Report)")
                         {
                             canControl.fourthFound = true;
                         }
-                        if (hit.transform.gameObject.name == "fifth")
+                        if (hit.transform.gameObject.name == "Document(25 Jun Report)")
                         {
                             canControl.fifthFound = true;
                         }
-                        if (hit.transform.gameObject.name == "sixth")
+                        if (hit.transform.gameObject.name == "Document(Crystal)")
                         {
                             canControl.sixthFound = true;
                         }
                         Destroy(hit.transform.gameObject);
+                        lastSeen = null;
+                        seenItem = false;
+                        objectShader = null;
                     }
 
                     if (hit.transform.tag == "hack1")
