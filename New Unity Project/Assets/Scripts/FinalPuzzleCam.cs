@@ -7,16 +7,19 @@ public class FinalPuzzleCam : MonoBehaviour
     public GameObject crosshair;
     bool play;
     public AudioClip[] musicclips;
+    float timeelapsed;
     // Start is called before the first frame update
     void Start()
     {
         transform.GetComponent<Camera>().enabled = false;
         play = false;
+        timeelapsed = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        timeelapsed += Time.deltaTime;
         if(play)
         {
             Music();
@@ -43,6 +46,6 @@ public class FinalPuzzleCam : MonoBehaviour
 
     void Music()
     {
-
+        
     }
 }
