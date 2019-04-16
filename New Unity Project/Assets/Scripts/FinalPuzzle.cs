@@ -12,6 +12,7 @@ public class FinalPuzzle : MonoBehaviour
     public Camera playercam;
     public GameObject pod;
     public GameObject alien;
+    FinalPuzzleMusic fpm;
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +21,13 @@ public class FinalPuzzle : MonoBehaviour
         moving = false;
         currsymbol = 0;
         faces = GameObject.FindGameObjectsWithTag("FinalPuzzleFace");
+        fpm = gameObject.GetComponent<FinalPuzzleMusic>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        fpm.numsolved = currsymbol;
         if(!moving)
         {
             if(Input.GetKeyDown(KeyCode.A))
