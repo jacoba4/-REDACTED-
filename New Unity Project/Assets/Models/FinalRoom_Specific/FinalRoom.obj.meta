@@ -14,6 +14,8 @@ ModelImporter:
     100016: polySurface257
     100018: polySurface329
     100020: polySurface344
+    100022: polySurface378
+    100024: polySurface387
     400000: //RootNode
     400002: pCube30
     400004: pCube53
@@ -25,6 +27,8 @@ ModelImporter:
     400016: polySurface257
     400018: polySurface329
     400020: polySurface344
+    400022: polySurface378
+    400024: polySurface387
     2100000: pCube30Mat
     2100002: pCube53Mat
     2100004: polySurface7Mat
@@ -35,6 +39,8 @@ ModelImporter:
     2100014: polySurface257Mat
     2100016: polySurface329Mat
     2100018: polySurface344Mat
+    2100020: initialShadingGroup
+    2100022: lambert2SG
     2300000: pCube30
     2300002: pCube53
     2300004: polySurface7
@@ -45,6 +51,8 @@ ModelImporter:
     2300014: polySurface257
     2300016: polySurface329
     2300018: polySurface344
+    2300020: polySurface378
+    2300022: polySurface387
     3300000: pCube30
     3300002: pCube53
     3300004: polySurface7
@@ -55,6 +63,8 @@ ModelImporter:
     3300014: polySurface257
     3300016: polySurface329
     3300018: polySurface344
+    3300020: polySurface378
+    3300022: polySurface387
     4300000: pCube30
     4300002: pCube53
     4300004: polySurface7
@@ -65,6 +75,8 @@ ModelImporter:
     4300014: polySurface257
     4300016: polySurface329
     4300018: polySurface344
+    4300020: polySurface378
+    4300022: polySurface387
   externalObjects: {}
   materials:
     importMaterials: 1

@@ -19,6 +19,6 @@ public class keycardreader : MonoBehaviour
 
     void Open()
     {
-        door.transform.localPosition = new Vector3(-173.4f,0f,0f);
+        GameObject.FindGameObjectWithTag("door1").SendMessage("MoveTheDoor");
     }
 }

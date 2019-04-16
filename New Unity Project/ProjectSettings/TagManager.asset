@@ -30,6 +30,7 @@ TagManager:
   - keycardreader
   - vent2
   - hack2
+  - door1
   layers:
   - Default
   - TransparentFX

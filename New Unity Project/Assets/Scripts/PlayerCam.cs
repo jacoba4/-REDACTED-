@@ -86,7 +86,7 @@ public class PlayerCam : MonoBehaviour
                 if (seenItem == false && hit.transform.tag != "Untagged")
                 {
 
-                    if (hit.transform.tag != "monitor" || slidingWall.move == false || hit.transform.tag != "hack1" || (
+                    if (hit.transform.tag != "monitor" && hit.transform.tag != "hack1" || (
                         ventMoved == true && hit.transform.tag == "Vent"))
                     {
                         mainCanvas.SendMessage("PressE");
@@ -105,7 +105,19 @@ public class PlayerCam : MonoBehaviour
                         lastSeen = hit.transform.gameObject;
 
                     }
+                    if (hit.transform.tag == "monitor")
+                    {
+                        if (slidingWall.move == false)
+                        {
+                            mainCanvas.SendMessage("PressE");
+                            seenItem = true;
 
+                            lastSeen = hit.transform.gameObject;
+                            objectShader = lastSeen.GetComponent<LightUpObject>();
+
+                            objectShader.isLit = true;
+                        }
+                    }
                     if (hit.transform.tag == "keycard" || hit.transform.tag == "vent2" || hit.transform.tag == "hack2")
                     {
                         mainCanvas.SendMessage("PressE");
@@ -185,7 +197,7 @@ public class PlayerCam : MonoBehaviour
 
                     if(hit.transform.tag == "vent2")
                     {
-                        hit.transform.SendMessage("Move");
+                        hit.transform.SendMessage("MoveTheVent");
                     }
 
                     if (hit.transform.tag == "keycard")
@@ -212,17 +224,15 @@ public class PlayerCam : MonoBehaviour
                     }*/
                     if (hit.transform.tag == "monitor")
                     {
-                        /*Vector3 slide = new Vector3(0, 6.88f, 0);
-                        Vector3 start = slidingDoor.transform.position;
-                        //slidingDoor.transform.position += slide;
-                        slide += slidingDoor.transform.position;
-                        slidingDoor.transform.position = Vector3.Lerp(start, slide, 15.0f);*/
-                        //OpenSmallDoor();
-                        slidingWall.move = true;
-                        //slidingWall.SendMessage("PlayNoise");
-                        objectShader.isLit = false;
-                        seenItem = false;
-                        mainCanvas.SendMessage("ClearText");
+                        
+                            
+                         slidingWall.move = true;
+
+                         objectShader.isLit = false;
+                         seenItem = false;
+                         mainCanvas.SendMessage("ClearText");
+                        
+                        
                     }
 
                     if(hit.transform.tag == "Crystal")
