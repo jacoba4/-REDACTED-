@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinalPuzzle : MonoBehaviour
 {
@@ -134,6 +135,8 @@ public class FinalPuzzle : MonoBehaviour
         Camera cscam = GameObject.FindGameObjectWithTag("Cutscene Camera").GetComponent<Camera>();
         cscam.enabled = false;
         GameObject.FindGameObjectWithTag("Black Camera").GetComponent<Camera>().enabled = true;
+        yield return new WaitForSeconds(.1f);
+        SceneManager.LoadScene("EndScreen");
 
     }
 
