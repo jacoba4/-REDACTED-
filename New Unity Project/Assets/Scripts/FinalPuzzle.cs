@@ -13,6 +13,8 @@ public class FinalPuzzle : MonoBehaviour
     public GameObject pod;
     public GameObject alien;
     FinalPuzzleMusic fpm;
+    public GameObject light1;
+    public GameObject light2;
 
     // Start is called before the first frame update
     void Start()
@@ -114,11 +116,39 @@ public class FinalPuzzle : MonoBehaviour
 
     IEnumerator AnimWait()
     {
+        light1.GetComponent<Light>().color = Color.red;
+        light2.GetComponent<Light>().color = Color.red;
+        StartCoroutine("Flicker");
         yield return new WaitForSeconds(4f);
         alien.GetComponent<Animator>().SetTrigger("Eyes");
-        GameObject.FindGameObjectWithTag("Cutscene Camera").GetComponent<Camera>().enabled = false;
-        GameObject.FindGameObjectWithTag("Cutscene Camera 2").GetComponent<Camera>().enabled = true;
+        //GameObject.FindGameObjectWithTag("Cutscene Camera").GetComponent<Camera>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Cutscene Camera 2").GetComponent<Camera>().enabled = true;
         
+        
+        //play sound
+        alien.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(.25f);
+        alien.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward*-435);
+        
+        yield return new WaitForSeconds(.4f);
+        Camera cscam = GameObject.FindGameObjectWithTag("Cutscene Camera").GetComponent<Camera>();
+        cscam.enabled = false;
+        GameObject.FindGameObjectWithTag("Black Camera").GetComponent<Camera>().enabled = true;
+
+    }
+
+    IEnumerator Flicker()
+    {
+        while(true)
+        {
+            light1.GetComponent<Light>().enabled = false;
+            light2.GetComponent<Light>().enabled = false;
+            yield return new WaitForSeconds(.1f);
+            light1.GetComponent<Light>().enabled = true;
+            light2.GetComponent<Light>().enabled = true;
+            yield return new WaitForSeconds(.1f);
+        }
+
     }
 
     void Reset()

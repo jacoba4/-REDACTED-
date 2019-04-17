@@ -36,6 +36,7 @@ TagManager:
   - safe
   - blacklight
   - actualblacklight
+  - Black Camera
   layers:
   - Default
   - TransparentFX
