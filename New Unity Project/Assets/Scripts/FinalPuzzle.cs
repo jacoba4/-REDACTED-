@@ -117,6 +117,7 @@ public class FinalPuzzle : MonoBehaviour
 
     IEnumerator AnimWait()
     {
+        GameObject.FindGameObjectWithTag("crosshair").SetActive(false);
         light1.GetComponent<Light>().color = Color.red;
         light2.GetComponent<Light>().color = Color.red;
         StartCoroutine("Flicker");
@@ -135,7 +136,7 @@ public class FinalPuzzle : MonoBehaviour
         Camera cscam = GameObject.FindGameObjectWithTag("Cutscene Camera").GetComponent<Camera>();
         cscam.enabled = false;
         GameObject.FindGameObjectWithTag("Black Camera").GetComponent<Camera>().enabled = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("EndScreen");
 
     }

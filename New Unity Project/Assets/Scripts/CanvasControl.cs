@@ -243,7 +243,8 @@ public class CanvasControl : MonoBehaviour
             //numPad[i].gameObject.SetActive(true);
         }
         safeOn = true;
-        
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     void NumPadOff()
     {
@@ -257,7 +258,8 @@ public class CanvasControl : MonoBehaviour
             numPad[i].GetComponent<Image>().sprite = transparentPhoto;
         }
         safeOn = false;
-        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     void OnePressed()
     {

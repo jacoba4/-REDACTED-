@@ -51,6 +51,8 @@ public class PlayerCam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         crouch = false;
         ventMoved = false;
         keycard = false;
@@ -180,13 +182,11 @@ public class PlayerCam : MonoBehaviour
                     if (hit.transform.tag == "actualblacklight")
                     {
                         blacklight_have = true;
-                        Destroy(GameObject.FindGameObjectWithTag("actualblacklight"));
-                        /*
                         GameObject[] bls = GameObject.FindGameObjectsWithTag("actualblacklight");
                         foreach (GameObject bl in bls)
                         {
                             Destroy(bl);
-                        }*/
+                        }
                         lastSeen = null;
                         seenItem = false;
                     }
