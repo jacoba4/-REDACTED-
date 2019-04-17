@@ -167,7 +167,7 @@ public class PlayerCam : MonoBehaviour
                         seenItem = true;
                         lastSeen = hit.transform.gameObject;
                     }
-                    if (hit.transform.tag == "safe" || hit.transform.tag == "actualblacklight")
+                    if (hit.transform.tag == "safe" || hit.transform.tag == "actualblacklight" || hit.transform.tag == "lightswitch")
                     {
                         //Debug.Log("safety");
                         mainCanvas.SendMessage("PressE");
@@ -310,6 +310,11 @@ public class PlayerCam : MonoBehaviour
                         mainCanvas.SendMessage("NumPadOn");
                         mainCanvas.SendMessage("ClearText");
                         seenItem = false;
+                    }
+
+                    if(hit.transform.tag == "lightswitch")
+                    {
+                        hit.transform.SendMessage("Toggle");
                     }
                 }
                 

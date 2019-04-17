@@ -37,6 +37,7 @@ TagManager:
   - blacklight
   - actualblacklight
   - Black Camera
+  - lightswitch
   layers:
   - Default
   - TransparentFX
