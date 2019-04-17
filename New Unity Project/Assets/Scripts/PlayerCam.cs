@@ -169,7 +169,8 @@ public class PlayerCam : MonoBehaviour
                         seenItem = true;
                         lastSeen = hit.transform.gameObject;
                     }
-                    if (hit.transform.tag == "safe" || hit.transform.tag == "actualblacklight" || hit.transform.tag == "lightswitch")
+                    if (hit.transform.tag == "safe" || hit.transform.tag == "actualblacklight" || hit.transform.tag == "lightswitch" ||
+                        hit.transform.tag == "Vent" || hit.transform.tag == "vent2")
                     {
                         //Debug.Log("safety");
                         mainCanvas.SendMessage("PressE");
@@ -189,6 +190,7 @@ public class PlayerCam : MonoBehaviour
                         }
                         lastSeen = null;
                         seenItem = false;
+                        mainCanvas.SendMessage("ClearText");
                     }
                     if (hit.transform.tag == "document")
                     {
@@ -249,11 +251,13 @@ public class PlayerCam : MonoBehaviour
                     {
                         hit.transform.SendMessage("MoveTheVent");
                         ventMoved = true;
+                        mainCanvas.SendMessage("ClearText");
                     }
 
                     if(hit.transform.tag == "vent2")
                     {
                         hit.transform.SendMessage("MoveTheVent");
+                        mainCanvas.SendMessage("ClearText");
                     }
 
                     if (hit.transform.tag == "keycard")
@@ -267,6 +271,7 @@ public class PlayerCam : MonoBehaviour
                         keycard = true;
                         lastSeen = null;
                         seenItem = false;
+                        mainCanvas.SendMessage("ClearText");
                     }
 
                     if (hit.transform.tag == "keycardreader")
@@ -275,6 +280,7 @@ public class PlayerCam : MonoBehaviour
                         {
                             hit.transform.GetComponent<keycardreader>().SendMessage("Open");
                         }
+                        mainCanvas.SendMessage("ClearText");
                     }
 
                     /*if (hit.transform.GetComponent<Camera>() != null)
@@ -304,6 +310,7 @@ public class PlayerCam : MonoBehaviour
                         transform.GetComponent<Camera>().enabled = false;
                         playerMove.allowPlayerMovement = false;
                         allowPlayerControl = false;
+                        mainCanvas.SendMessage("ClearText");
                     }
                     if (hit.transform.tag == "safe")
                     {
