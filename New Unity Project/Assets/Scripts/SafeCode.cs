@@ -23,6 +23,7 @@ public class SafeCode : MonoBehaviour
 
     void Pressed(int num)
     {
+        Debug.Log(num);
         if(num == code[curr])
         {
             Debug.Log("num input");
@@ -50,6 +51,7 @@ public class SafeCode : MonoBehaviour
     {
         GetComponent<Safe>().SendMessage("Open");
         //Also set safe ui to close
+        currCanvas.SendMessage("NumPadOff");
     }
 
     

@@ -266,38 +266,48 @@ public class CanvasControl : MonoBehaviour
     }
     void TwoPressed()
     {
+        Debug.Log("two");
         theSafe.SendMessage("Pressed", 2);
     }
     void ThreePressed()
     {
+        Debug.Log("three");
         theSafe.SendMessage("Pressed", 3);
     }
     void FourPressed()
     {
+        Debug.Log("four");
         theSafe.SendMessage("Pressed", 4);
     }
     void FivePressed()
     {
+        Debug.Log("five");
         theSafe.SendMessage("Pressed", 5);
     }
     void SixPressed()
     {
+        Debug.Log("six");
         theSafe.SendMessage("Pressed", 6);
     }
     void SevenPressed()
     {
+        Debug.Log("seven");
         theSafe.SendMessage("Pressed", 7);
     }
     void EightPressed()
     {
+        Debug.Log("eight");
         theSafe.SendMessage("Pressed", 8);
     }
     void NinePressed()
     {
+        Debug.Log("nine");
         theSafe.SendMessage("Pressed", 9);
     }
     void ZeroPressed()
     {
-        theSafe.SendMessage("Pressed", 0);
+        int i = 0;
+        Debug.Log("zero");
+        theSafe.SendMessage("Pressed", i);
     }
 }
