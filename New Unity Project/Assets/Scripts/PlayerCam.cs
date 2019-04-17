@@ -21,6 +21,7 @@ public class PlayerCam : MonoBehaviour
 
     public Light directionalLight;
     public GameObject[] blackLightObjects;
+    public bool blacklight_have;
 
     private bool ventMoved;
 
@@ -55,6 +56,7 @@ public class PlayerCam : MonoBehaviour
         keycard = false;
         directionalLight.intensity = 0;
         blackLightObjects = GameObject.FindGameObjectsWithTag("blacklight");
+        blacklight_have = false;
     }
 
     // Update is called once per frame
@@ -62,11 +64,19 @@ public class PlayerCam : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            BlackLight();
+            if(blacklight_have)
+            {
+                BlackLight();
+            }
+            
         }
         if (Input.GetKeyUp(KeyCode.F))
         {
-            BlackLightOff();
+            if(blacklight_have)
+            {
+                BlackLightOff();
+            }
+            
         }
         Canvas mainCanvas = GameObject.FindObjectOfType<Canvas>();
         RaycastHit hit;
@@ -157,7 +167,7 @@ public class PlayerCam : MonoBehaviour
                         seenItem = true;
                         lastSeen = hit.transform.gameObject;
                     }
-                    if (hit.transform.tag == "safe")
+                    if (hit.transform.tag == "safe" || hit.transform.tag == "actualblacklight")
                     {
                         //Debug.Log("safety");
                         mainCanvas.SendMessage("PressE");
@@ -167,6 +177,19 @@ public class PlayerCam : MonoBehaviour
                 }
                 if (Input.GetMouseButtonDown(0))
                 {
+                    if (hit.transform.tag == "actualblacklight")
+                    {
+                        blacklight_have = true;
+                        Destroy(GameObject.FindGameObjectWithTag("actualblacklight"));
+                        /*
+                        GameObject[] bls = GameObject.FindGameObjectsWithTag("actualblacklight");
+                        foreach (GameObject bl in bls)
+                        {
+                            Destroy(bl);
+                        }*/
+                        lastSeen = null;
+                        seenItem = false;
+                    }
                     if (hit.transform.tag == "document")
                     {
                         //canControl.docCount += 1;
@@ -236,7 +259,14 @@ public class PlayerCam : MonoBehaviour
                     if (hit.transform.tag == "keycard")
                     {
                         hit.transform.GetComponent<keycard>().SendMessage("Pickup");
+                        GameObject[] kks = GameObject.FindGameObjectsWithTag("keycard");
+                        foreach (GameObject kk in kks)
+                        {
+                            Destroy(kk);
+                        }
                         keycard = true;
+                        lastSeen = null;
+                        seenItem = false;
                     }
 
                     if (hit.transform.tag == "keycardreader")
@@ -381,18 +411,18 @@ public class PlayerCam : MonoBehaviour
     void BlackLight()
     {
         directionalLight.intensity = 1;
-        /*foreach (GameObject enableObject in blackLightObjects)
+        foreach (GameObject enableObject in blackLightObjects)
         {
-            enableObject.enable;
-        }*/
+            enableObject.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
     void BlackLightOff()
     {
         directionalLight.intensity = 0;
-        /*foreach (GameObject enableObject in blackLightObjects)
+        foreach (GameObject enableObject in blackLightObjects)
         {
-            enableObject.disable;
-        }*/
+            enableObject.GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
 }

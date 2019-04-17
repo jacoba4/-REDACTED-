@@ -19,6 +19,11 @@ public class Safe : MonoBehaviour
 
     void Open()
     {
+        MeshCollider[] mc = GetComponentsInChildren<MeshCollider>();
+        foreach (MeshCollider m in mc)
+        {
+            m.enabled = false;
+        }
         GetComponent<Animator>().SetTrigger("Open");
     }
 }

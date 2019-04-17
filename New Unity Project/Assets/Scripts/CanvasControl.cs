@@ -254,7 +254,7 @@ public class CanvasControl : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             numPad[i].interactable = false;
-            //numPad[i].gameObject.SetActive(false);
+            numPad[i].GetComponent<Image>().sprite = transparentPhoto;
         }
         safeOn = false;
         

@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class SafeCode : MonoBehaviour
 {
-    string code;
-    int curr;
+    int[] code;
+    public int curr;
 
     public CanvasControl currCanvas;
     // Start is called before the first frame update
     void Start()
     {
-        code = "3846";
+        code = new int[4];
+        code[0] = 3;
+        code[1] = 8;
+        code[2] = 4;
+        code[3] = 6;
         curr = 0;
     }
 
@@ -31,7 +35,7 @@ public class SafeCode : MonoBehaviour
         }
         else
         {
-        
+            Reset();
         }
 
         if(curr == 4)

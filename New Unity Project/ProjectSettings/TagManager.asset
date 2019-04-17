@@ -34,6 +34,8 @@ TagManager:
   - document
   - number
   - safe
+  - blacklight
+  - actualblacklight
   layers:
   - Default
   - TransparentFX
