@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 973171399736031941}
   - component: {fileID: 973171399736802021}
   - component: {fileID: 973171399737800741}
+  - component: {fileID: 6208202090432040335}
   m_Layer: 0
   m_Name: SideTable
   m_TagString: Untagged
@@ -77,6 +78,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6208202090432040335
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973171399735797477}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 25eab99797f0c184ba852a79c38b4af4, type: 3}
 --- !u!1 &973171399735797479
 GameObject:
   m_ObjectHideFlags: 0

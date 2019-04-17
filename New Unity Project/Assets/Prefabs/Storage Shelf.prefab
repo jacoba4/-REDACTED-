@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5634250543947975251}
   - component: {fileID: 4321325776520506484}
   - component: {fileID: 3877469768759434830}
+  - component: {fileID: 5958521820844975498}
   m_Layer: 0
   m_Name: initialShadingGroup_pCube10
   m_TagString: Untagged
@@ -77,6 +78,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5958521820844975498
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747562419508892906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: c55c1db7fed3dec42abb3f2dc3120952, type: 3}
 --- !u!1 &8836925012852640378
 GameObject:
   m_ObjectHideFlags: 0
