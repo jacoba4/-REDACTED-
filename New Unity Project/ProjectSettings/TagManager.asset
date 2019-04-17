@@ -32,6 +32,8 @@ TagManager:
   - hack2
   - door1
   - document
+  - number
+  - safe
   layers:
   - Default
   - TransparentFX

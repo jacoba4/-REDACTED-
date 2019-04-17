@@ -15,7 +15,9 @@ public class CanvasControl : MonoBehaviour
     public Sprite fifthDocument;
     public Sprite sixthDocument;
     public Sprite placeholder;
+    public Sprite numPadSprite;
     public Image documentImageSpace;
+    public Image numPadImageSpace;
 
     public Sprite detectedEye;
     public Sprite transparentPhoto;
@@ -27,6 +29,8 @@ public class CanvasControl : MonoBehaviour
 
     public PlayerCam inUseCamera;
     public PlayerMove playerMovement;
+    public SafeCode theSafe;
+    public Button[] numPad;
 
     public int docNum;
 
@@ -36,6 +40,7 @@ public class CanvasControl : MonoBehaviour
     public bool fourthFound;
     public bool fifthFound;
     public bool sixthFound;
+    private bool safeOn;
 
     // Start is called before the first frame update
     void Start()
@@ -46,9 +51,12 @@ public class CanvasControl : MonoBehaviour
         documentImageSpace = GameObject.FindWithTag("Document space").GetComponent<Image>() as Image;
         documentImageSpace.sprite = transparentPhoto;
 
+        numPadImageSpace.sprite = transparentPhoto;
+
         docNum = 0;
 
         lookingAtDocuments = false;
+        safeOn = false;
 
         firstFound = false;
         secondFound = false;
@@ -56,12 +64,32 @@ public class CanvasControl : MonoBehaviour
         fourthFound = false;
         fifthFound = false;
         sixthFound = false;
+
+        numPad[1] = GameObject.Find("one").GetComponent<UnityEngine.UI.Button>();
+        numPad[2] = GameObject.Find("two").GetComponent<UnityEngine.UI.Button>();
+        numPad[3] = GameObject.Find("three").GetComponent<UnityEngine.UI.Button>();
+        numPad[4] = GameObject.Find("four").GetComponent<UnityEngine.UI.Button>();
+        numPad[5] = GameObject.Find("five").GetComponent<UnityEngine.UI.Button>();
+        numPad[6] = GameObject.Find("six").GetComponent<UnityEngine.UI.Button>();
+        numPad[7] = GameObject.Find("seven").GetComponent<UnityEngine.UI.Button>();
+        numPad[8] = GameObject.Find("eight").GetComponent<UnityEngine.UI.Button>();
+        numPad[9] = GameObject.Find("nine").GetComponent<UnityEngine.UI.Button>();
+        numPad[0] = GameObject.Find("zero").GetComponent<UnityEngine.UI.Button>();
+        for (int i = 0; i < 10; i++)
+        {
+            //numPad[i].interactable = false;
+            //numPad[i].gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetKeyUp(KeyCode.E) && safeOn == true)
+        {
+            NumPadOff();
+        }
+        if (Input.GetKeyUp(KeyCode.Q) && safeOn == false)
         {
             Check();
         }
@@ -203,9 +231,73 @@ public class CanvasControl : MonoBehaviour
             }
         }
     }
-
-    void Safe()
+    void NumPadOn()
     {
+        inUseCamera.allowPlayerControl = false;
+        playerMovement.allowPlayerMovement = false;
+        inUseCamera.SendMessage("ShowCursor");
+        numPadImageSpace.sprite = numPadSprite;
+        for (int i = 0; i < 10; i++)
+        {
+            //numPad[i].interactable = true;
+            //numPad[i].gameObject.SetActive(true);
+        }
+        safeOn = true;
         
+    }
+    void NumPadOff()
+    {
+        inUseCamera.SendMessage("LockCursor");
+        inUseCamera.allowPlayerControl = true;
+        playerMovement.allowPlayerMovement = true;
+        numPadImageSpace.sprite = transparentPhoto;
+        for (int i = 0; i < 10; i++)
+        {
+            numPad[i].interactable = false;
+            //numPad[i].gameObject.SetActive(false);
+        }
+        safeOn = false;
+        
+    }
+    void OnePressed()
+    {
+        Debug.Log("one");
+        theSafe.SendMessage("Pressed", 1);
+    }
+    void TwoPressed()
+    {
+        theSafe.SendMessage("Pressed", 2);
+    }
+    void ThreePressed()
+    {
+        theSafe.SendMessage("Pressed", 3);
+    }
+    void FourPressed()
+    {
+        theSafe.SendMessage("Pressed", 4);
+    }
+    void FivePressed()
+    {
+        theSafe.SendMessage("Pressed", 5);
+    }
+    void SixPressed()
+    {
+        theSafe.SendMessage("Pressed", 6);
+    }
+    void SevenPressed()
+    {
+        theSafe.SendMessage("Pressed", 7);
+    }
+    void EightPressed()
+    {
+        theSafe.SendMessage("Pressed", 8);
+    }
+    void NinePressed()
+    {
+        theSafe.SendMessage("Pressed", 9);
+    }
+    void ZeroPressed()
+    {
+        theSafe.SendMessage("Pressed", 0);
     }
 }

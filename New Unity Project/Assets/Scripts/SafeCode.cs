@@ -6,6 +6,8 @@ public class SafeCode : MonoBehaviour
 {
     string code;
     int curr;
+
+    public CanvasControl currCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class SafeCode : MonoBehaviour
     {
         if(num == code[curr])
         {
+            Debug.Log("num input");
             curr++;
         }
         else
@@ -32,6 +35,7 @@ public class SafeCode : MonoBehaviour
 
         if(curr == 4)
         {
+            currCanvas.SendMessage("NumPadOff");
             Solved();
         }
     }

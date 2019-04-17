@@ -102,7 +102,7 @@ public class PlayerCam : MonoBehaviour
                 if (seenItem == false && hit.transform.tag != "Untagged")
                 {
 
-                    if (hit.transform.tag != "monitor" && hit.transform.tag != "hack1" || (
+                    /*if (hit.transform.tag != "monitor" && hit.transform.tag != "hack1" || (
                         ventMoved == true && hit.transform.tag == "Vent"))
                     {
                         mainCanvas.SendMessage("PressE");
@@ -112,7 +112,7 @@ public class PlayerCam : MonoBehaviour
                         objectShader = lastSeen.GetComponent<LightUpObject>();
 
                         //objectShader.isLit = true;
-                    }
+                    }*/
                     if (hit.transform.tag == "hack1")
                     {
                         mainCanvas.SendMessage("PressE");
@@ -157,7 +157,13 @@ public class PlayerCam : MonoBehaviour
                         seenItem = true;
                         lastSeen = hit.transform.gameObject;
                     }
-                    
+                    if (hit.transform.tag == "safe")
+                    {
+                        //Debug.Log("safety");
+                        mainCanvas.SendMessage("PressE");
+                        seenItem = true;
+                        lastSeen = hit.transform.gameObject;
+                    }
                 }
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -269,6 +275,12 @@ public class PlayerCam : MonoBehaviour
                         playerMove.allowPlayerMovement = false;
                         allowPlayerControl = false;
                     }
+                    if (hit.transform.tag == "safe")
+                    {
+                        mainCanvas.SendMessage("NumPadOn");
+                        mainCanvas.SendMessage("ClearText");
+                        seenItem = false;
+                    }
                 }
                 
                 if (seenItem == true)
@@ -312,9 +324,13 @@ public class PlayerCam : MonoBehaviour
             }
         }
     }
-    private void LockCursor()
+    public void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
+    }
+    public void ShowCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
     }
     private void CameraRotation()
     {
