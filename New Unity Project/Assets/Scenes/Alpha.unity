@@ -13202,7 +13202,7 @@ PrefabInstance:
     - target: {fileID: 1284711197, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: alien
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 869662344}
     - target: {fileID: 1284711197, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: alienparent
       value: 

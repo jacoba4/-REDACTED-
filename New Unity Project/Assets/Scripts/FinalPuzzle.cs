@@ -135,7 +135,7 @@ public class FinalPuzzle : MonoBehaviour
         Camera cscam = GameObject.FindGameObjectWithTag("Cutscene Camera").GetComponent<Camera>();
         cscam.enabled = false;
         GameObject.FindGameObjectWithTag("Black Camera").GetComponent<Camera>().enabled = true;
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("EndScreen");
 
     }
