@@ -239,8 +239,8 @@ public class CanvasControl : MonoBehaviour
         numPadImageSpace.sprite = numPadSprite;
         for (int i = 0; i < 10; i++)
         {
-            //numPad[i].interactable = true;
-            //numPad[i].gameObject.SetActive(true);
+            numPad[i].interactable = true;
+            numPad[i].gameObject.SetActive(true);
         }
         safeOn = true;
         Cursor.visible = true;
