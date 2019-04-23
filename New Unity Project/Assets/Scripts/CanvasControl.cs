@@ -235,7 +235,7 @@ public class CanvasControl : MonoBehaviour
     {
         inUseCamera.allowPlayerControl = false;
         playerMovement.allowPlayerMovement = false;
-        inUseCamera.SendMessage("ShowCursor");
+        //inUseCamera.SendMessage("ShowCursor");
         numPadImageSpace.sprite = numPadSprite;
         for (int i = 0; i < 10; i++)
         {
@@ -248,7 +248,7 @@ public class CanvasControl : MonoBehaviour
     }
     void NumPadOff()
     {
-        inUseCamera.SendMessage("LockCursor");
+        //inUseCamera.SendMessage("LockCursor");
         inUseCamera.allowPlayerControl = true;
         playerMovement.allowPlayerMovement = true;
         numPadImageSpace.sprite = transparentPhoto;

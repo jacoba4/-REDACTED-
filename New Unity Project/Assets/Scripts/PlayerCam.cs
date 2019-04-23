@@ -160,6 +160,7 @@ public class PlayerCam : MonoBehaviour
                         {
                             mainCanvas.SendMessage("PressE");
                             seenItem = true;
+                            lastSeen = hit.transform.gameObject;
                         }
                     }
 
@@ -279,8 +280,11 @@ public class PlayerCam : MonoBehaviour
                         if(keycard)
                         {
                             hit.transform.GetComponent<keycardreader>().SendMessage("Open");
+                            mainCanvas.SendMessage("ClearText");
+                            seenItem = false;
+                            lastSeen = null;
                         }
-                        mainCanvas.SendMessage("ClearText");
+                        
                     }
 
                     /*if (hit.transform.GetComponent<Camera>() != null)
@@ -329,14 +333,18 @@ public class PlayerCam : MonoBehaviour
                 {
                     if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f))
                     {
-                        Vector3 targetDir = lastSeen.transform.position - transform.position;
-                        float angle = Vector3.Angle(targetDir, transform.forward);
-                        if (hit.transform.tag == "Untagged" && angle > 15)
+                        if (lastSeen != null)
                         {
-                            mainCanvas.SendMessage("ClearText");
-                            seenItem = false;
-                            //objectShader.isLit = false;
+                            Vector3 targetDir = lastSeen.transform.position - transform.position;
+                            float angle = Vector3.Angle(targetDir, transform.forward);
+                            if (hit.transform.tag == "Untagged" && angle > 15)
+                            {
+                                mainCanvas.SendMessage("ClearText");
+                                seenItem = false;
+                                //objectShader.isLit = false;
+                            }
                         }
+                        
                     }
                 }
             }
