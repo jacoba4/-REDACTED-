@@ -22,6 +22,7 @@ public class PlayerCam : MonoBehaviour
     public Light directionalLight;
     public GameObject[] blackLightObjects;
     public bool blacklight_have;
+    public bool blackLightOn;
 
     private bool ventMoved;
 
@@ -59,27 +60,26 @@ public class PlayerCam : MonoBehaviour
         directionalLight.intensity = 0;
         blackLightObjects = GameObject.FindGameObjectsWithTag("blacklight");
         blacklight_have = false;
+        blackLightOn = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if(blacklight_have)
-            {
-                BlackLight();
-            }
-            
-        }
         if (Input.GetKeyUp(KeyCode.F))
         {
-            if(blacklight_have)
+            if(blacklight_have && blackLightOn == false)
+            {
+                BlackLight();
+                blackLightOn = true;
+            }
+            else if (blacklight_have && blackLightOn == true)
             {
                 BlackLightOff();
             }
-            
+
         }
+        
         Canvas mainCanvas = GameObject.FindObjectOfType<Canvas>();
         RaycastHit hit;
         if (allowPlayerControl == true)
