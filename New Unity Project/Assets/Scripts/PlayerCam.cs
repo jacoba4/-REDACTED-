@@ -76,6 +76,7 @@ public class PlayerCam : MonoBehaviour
             else if (blacklight_have && blackLightOn == true)
             {
                 BlackLightOff();
+                blackLightOn = false;
             }
 
         }
@@ -85,7 +86,7 @@ public class PlayerCam : MonoBehaviour
         if (allowPlayerControl == true)
         {
             CameraRotation();
-            Debug.DrawRay(transform.position,transform.forward, Color.green,.01f);
+            //Debug.DrawRay(transform.position,transform.forward, Color.green,.01f);
             if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.P))
             {
                 Application.Quit();
@@ -94,7 +95,7 @@ public class PlayerCam : MonoBehaviour
                 {
                     if(crouch == false)
                     {
-                        print("crouch");
+                        //print("crouch");
                         transform.localPosition = new Vector3(0,-.127f,0);
                         crouch = true;
                         transform.parent.GetComponent<CharacterController>().height = .75f;
@@ -230,7 +231,7 @@ public class PlayerCam : MonoBehaviour
 
                     if (hit.transform.tag == "hack1")
                     {
-                        print("dufuq");
+                        //print("dufuq");
                         mainCanvas.SendMessage("ClearText");
                         hack1.GetComponent<HackCube>().enabled = true;
                         allowPlayerControl = false;
@@ -417,7 +418,7 @@ public class PlayerCam : MonoBehaviour
         allowPlayerControl = true;
         playerMove.allowPlayerMovement = true;
         GetComponent<Camera>().enabled = true;
-        PuzzleCam.GetComponent<Camera>().enabled = false;
+        //PuzzleCam.GetComponent<Camera>().enabled = false;
     }
 
     void OpenSmallDoor()

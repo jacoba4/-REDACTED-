@@ -27,10 +27,10 @@ public class SafeCode : MonoBehaviour
 
     void Pressed(int num)
     {
-        Debug.Log(num);
+        //Debug.Log(num);
         if(num == code[curr])
         {
-            Debug.Log("num input");
+            //Debug.Log("num input");
             curr++;
         }
         else

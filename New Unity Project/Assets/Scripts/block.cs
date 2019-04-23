@@ -29,7 +29,7 @@ public class block : MonoBehaviour
 
     public void Solved()
     {
-        print("block disable");
+        //print("block disable");
         GetComponent<BoxCollider>().enabled = false;
         mat.color = initialColor;
         redBox.off = true;

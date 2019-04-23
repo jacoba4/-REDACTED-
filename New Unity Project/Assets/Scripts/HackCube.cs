@@ -276,7 +276,7 @@ public class HackCube : MonoBehaviour
 
     void Solved()
     {
-        print("YOSH!");
+        //print("YOSH!");
         disable.enabled = false;
         player.SendMessage("Solved");
         playermove.allowPlayerMovement = true;

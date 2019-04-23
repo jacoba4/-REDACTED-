@@ -59,10 +59,10 @@ public class PlayerMove : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        print("detected");
+        //print("detected");
         if(col.gameObject.transform.tag == "CameraBox")
         {
-            print("detected");
+            //print("detected");
             SceneManager.LoadScene("Alpha", LoadSceneMode.Single);
         }
     }

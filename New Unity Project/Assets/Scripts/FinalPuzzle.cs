@@ -94,7 +94,6 @@ public class FinalPuzzle : MonoBehaviour
             currsymbol++;
             if(currsymbol == finalcount)
             {
-                print("SOLVED :D");
                 GameObject.FindGameObjectWithTag("FinalPuzzleCam").SendMessage("SwitchOff");
                 GameObject.FindGameObjectWithTag("Cutscene Camera").GetComponent<Camera>().enabled = true;
                 pod.GetComponent<Animator>().SetTrigger("Open");
@@ -157,7 +156,6 @@ public class FinalPuzzle : MonoBehaviour
 
     void Reset()
     {
-        print("Resetting");
         currsymbol = 0;
         foreach(GameObject face in faces)
         {
