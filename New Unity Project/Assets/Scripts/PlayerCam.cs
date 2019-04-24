@@ -63,7 +63,7 @@ public class PlayerCam : MonoBehaviour
         blackLightObjects = GameObject.FindGameObjectsWithTag("blacklight");
         blacklight_have = false;
         blackLightOn = false;
-        countDownTime = 10;
+        countDownTime = 100;
         //Canvas mainCanvas = GameObject.FindObjectOfType<Canvas>();
     }
 
@@ -102,7 +102,7 @@ public class PlayerCam : MonoBehaviour
         }
         if (blackLightOn == false && blacklight_have == true)
         {
-            if (countDownTime != 10)
+            if (countDownTime != 100)
             {
                 countDownTime += 1;
             }
