@@ -18,6 +18,7 @@ public class CanvasControl : MonoBehaviour
     public Sprite numPadSprite;
     public Image documentImageSpace;
     public Image numPadImageSpace;
+    public Text countDownText;
 
     public Sprite detectedEye;
     public Sprite transparentPhoto;
@@ -311,5 +312,9 @@ public class CanvasControl : MonoBehaviour
         int i = 0;
         //Debug.Log("zero");
         theSafe.SendMessage("Pressed", i);
+    }
+    void CountDown(int num)
+    {
+        countDownText.text = num.ToString();
     }
 }

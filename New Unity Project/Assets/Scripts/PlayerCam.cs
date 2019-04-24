@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Some of movement and camera adapted from https://www.youtube.com/watch?v=n-KX8AeGK7E&t=913s
 public class PlayerCam : MonoBehaviour
@@ -35,6 +36,7 @@ public class PlayerCam : MonoBehaviour
     public PlayerMove playerMove;
 
     private float startTime;
+    public int countDownTime;
 
     public bool keycard;
 
@@ -61,6 +63,8 @@ public class PlayerCam : MonoBehaviour
         blackLightObjects = GameObject.FindGameObjectsWithTag("blacklight");
         blacklight_have = false;
         blackLightOn = false;
+        countDownTime = 10;
+        //Canvas mainCanvas = GameObject.FindObjectOfType<Canvas>();
     }
 
     // Update is called once per frame
@@ -68,12 +72,12 @@ public class PlayerCam : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.F))
         {
-            if(blacklight_have && blackLightOn == false)
+            if(blacklight_have && blackLightOn == false && countDownTime > 0)
             {
                 BlackLight();
                 blackLightOn = true;
             }
-            else if (blacklight_have && blackLightOn == true)
+            else if (blacklight_have && blackLightOn == true && countDownTime == 0)
             {
                 BlackLightOff();
                 blackLightOn = false;
@@ -81,7 +85,29 @@ public class PlayerCam : MonoBehaviour
 
         }
         
+        
         Canvas mainCanvas = GameObject.FindObjectOfType<Canvas>();
+        if (blackLightOn == true)
+        {
+            if (countDownTime != 0)
+            {
+                countDownTime -= 1;
+            }
+            else if (countDownTime == 0)
+            {
+                blackLightOn = false;
+                BlackLightOff();
+            }
+            mainCanvas.SendMessage("CountDown", countDownTime);
+        }
+        if (blackLightOn == false && blacklight_have == true)
+        {
+            if (countDownTime != 10)
+            {
+                countDownTime += 1;
+            }
+            mainCanvas.SendMessage("CountDown", countDownTime);
+        }
         RaycastHit hit;
         if (allowPlayerControl == true)
         {
@@ -226,7 +252,7 @@ public class PlayerCam : MonoBehaviour
                         mainCanvas.SendMessage("ClearText");
                         lastSeen = null;
                         seenItem = false;
-                        objectShader = null;
+                        //objectShader = null;
                     }
 
                     if (hit.transform.tag == "hack1")
@@ -357,7 +383,11 @@ public class PlayerCam : MonoBehaviour
                 {
                     seenItem = false;
                     mainCanvas.SendMessage("ClearText");
-                    objectShader.isLit = false;
+                    if (lastSeen.transform.tag == "monitor")
+                    {
+                        objectShader.isLit = false;
+                    }
+                    
                 }
                 
             }
@@ -370,7 +400,10 @@ public class PlayerCam : MonoBehaviour
                 {
                     seenItem = false;
                     mainCanvas.SendMessage("ClearText");
-                    objectShader.isLit = false;
+                    if (lastSeen.transform.tag == "monitor")
+                    {
+                        objectShader.isLit = false;
+                    }
                 }
             }
         }
