@@ -13994,7 +13994,7 @@ PrefabInstance:
     - target: {fileID: 793910648, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: 14dcbc45ec78fb145bf2e30308f4a8a3, type: 3}
+      objectReference: {fileID: 4300000, guid: 81fb75f4e7af4c5458adbb7c2ebca82d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
 --- !u!1 &822499598 stripped
@@ -25435,7 +25435,7 @@ RectTransform:
   m_GameObject: {fileID: 1622422183}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.14999999, z: 7.6925297}
+  m_LocalScale: {x: 0.16229199, y: 0.1226415, z: 7.6925297}
   m_Children: []
   m_Father: {fileID: 1723498784}
   m_RootOrder: 2
@@ -35977,7 +35977,7 @@ PrefabInstance:
     - target: {fileID: 793910648, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: 14dcbc45ec78fb145bf2e30308f4a8a3, type: 3}
+      objectReference: {fileID: 4300000, guid: 81fb75f4e7af4c5458adbb7c2ebca82d, type: 3}
     - target: {fileID: 141745002, guid: 3b7ac8d659460364495247307da2d1bf, type: 3}
       propertyPath: m_TagString
       value: Untagged
