@@ -1,3 +1,3 @@
 # [Redacted]
 
-Redacted is a 
+[REDACTED] is a puzzle game where the player plays as a journalist who is trying to uncover the secret behind a mysterious sickness at Area 51. In [REDACTED], the player hacks security systems, solves puzzles, and eventually encounters an extraterrestrial being.
