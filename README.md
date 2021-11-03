@@ -4,4 +4,4 @@
 
 This game was created using Unity in the span of one semester as part of RPI's Game Development 2 course.
 
-NOTE: To use the blacklight, press F
+__NOTE: To use the blacklight, press F__
